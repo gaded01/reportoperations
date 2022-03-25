@@ -38,7 +38,7 @@
                         </li>
                         <li><a data-toggle="tab" href="#ipdo"><i class="fa fa-user-plus"></i> IPDO </a>
                         </li>
-                        <li class="active"><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Reports</a>
+                        <li class="active"><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Settings</a>
                         </li>
                         <li><a data-toggle="tab" href="#account"><i class="fa fa-user-secret"></i> Account</a>
                         </li>
