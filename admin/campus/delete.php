@@ -9,7 +9,7 @@
 		$sql = "DELETE FROM campus WHERE id = '".$_POST['id']."'";
 		//if-else statement in executing our query
 		if($db->exec($sql)){
-			$output['message'] = 'Member deleted successfully';
+			$output['message'] = 'Campus deleted successfully';
 		}
 		else{
 			$output['error'] = true;

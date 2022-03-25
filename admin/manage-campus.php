@@ -45,13 +45,13 @@
                         </li>
                         <li><a data-toggle="tab" href="#ipdo"><i class="fa fa-user-plus"></i> IPDO </a>
                         </li>
-                        <li><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Reports</a>
+                        <li><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Settings</a>
                         </li>
                         <li><a data-toggle="tab" href="#account"><i class="fa fa-user-secret"></i> Account</a>
                         </li>
                     </ul>
                     <div class="tab-content custom-menu-content">
-                        <div id="Home" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        <div id="Home" class="tab-pane in notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="index.php">Dashboard</a>
                                 </li>
@@ -73,7 +73,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="campus" class="tab-pane in active notika-tab-menu-bg animated flipInX">
+                        <div id="campus" class="tab-pane active notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="add-campus.php">Add Campus</a>
                                 </li>
@@ -92,15 +92,17 @@
                         </div>
                         <div id="ipdo" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="#">add IPDO</a>
+                                <li><a href="add-ipdo.php">Add IPDO</a>
                                 </li>
-                                <li><a href="#">manage IPDO</a>
+                                <li><a href="manage-ipdo.php">Manage IPDO</a>
                                 </li>
                             </ul>
                         </div>
                         <div id="report" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="reports.php">Attendance Report</a>
+                            <li><a href="add-types.php">Add Types</a>
+                                </li>
+                                <li><a href="manage-types.php">Manage Types</a>
                                 </li>
                             </ul>
                         </div>
@@ -120,71 +122,104 @@
         </div>
     </div>
     <!-- Main Menu area End-->
-    <!-- Data Table area Start-->
+
+
+    <div class="modal fade" id="editmodal" role="dialog">
+                                    <div class="modal-dialog modals-default">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h2>Edit Campus</h2>
+                                                <div class="form-example-wrap mg-t-30">
+                                                    <form id="editform">
+                                                    <input type="hidden" class="id" name="id">
+                                                        <div class="form-example-int form-horizental">
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-lg-* col-md-3 col-sm-3 col-xs-12">
+                                                                        <label class="hrzn-fm">Campus Code:</label>
+                                                                    </div>
+                                                                    <div class="col-lg-* col-md-7 col-sm-7 col-xs-12">
+                                                                        <div class="nk-int-st">
+                                                                            <input type="text" class="form-control input-sm code" placeholder="ex. CMPS 001" name="code">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-example-int form-horizental mg-t-15">
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-lg-* col-md-3 col-sm-3 col-xs-12">
+                                                                        <label class="hrzn-fm">Campus Name:</label>
+                                                                    </div>
+                                                                    <div class="col-lg-* col-md-7 col-sm-7 col-xs-12">
+                                                                        <div class="nk-int-st">
+                                                                            <input type="text" class="form-control input-sm name" placeholder="ex Can-avid" name="name">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-default">Save changes</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+<!-- Delete -->
+<div class="modal fade" id="deletemodal" role="dialog">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h5>Are you sure you want to delete this data?</h5>
+                                                <div class="form-example-wrap mg-t-50">
+                                                    <form id="deleteform">
+                                                    <input type="hidden" class="id" name="id">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-danger">Save changes</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
     <div class="data-table-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="data-table-list">
                         <div class="basic-tb-hd">
-                            <h2><i class="fa fa-users"></i> Campus Lists</h2>
+                            <h2><i class="fa fa-building"></i> Campus Lists</h2>
                         </div>
-                        <div class="table-responsive">
-                            <table id="data-table-basic" class="table table-striped">
+                        <div class="bsc-tbl-st">
+                            <table class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Campus ID</th>
-                                        <th>Name</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
+                                        <th>Campus Name</th>
+                                        <th>Code</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>CMPS 001</td>
-                                        <td>ESSU Main</td>
-                                        <td><span class="badge bg-success">active</span></td>
-                                        <td class="text-right">
-                                            <a class="btn btn-sm btn-success" href="#"><i class="fa fa-edit"></i> edit</a>
-                                            <a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target="#delete"><i
-                                                    class="fa fa-trash"></i> delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>CMPS 002</td>
-                                        <td>ESSU Can-avid</td>
-                                        <td><span class="badge bg-success">active</span></td>
-                                        <td class="text-right">
-                                            <a class="btn btn-sm btn-success" href="#"><i class="fa fa-edit"></i> edit</a>
-                                            <a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target="#delete"><i
-                                                    class="fa fa-trash"></i> delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>CMPS 003</td>
-                                        <td>ESSU Arteche</td>
-                                        <td><span class="badge bg-danger">active</span></td>
-                                        <td class="text-right">
-                                            <a class="btn btn-sm btn-success" href="#"><i class="fa fa-edit"></i> edit</a>
-                                            <a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target="#delete"><i
-                                                    class="fa fa-trash"></i> delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>CMPS 004</td>
-                                        <td>ESSU Guiuan</td>
-                                        <td><span class="badge bg-success">active</span></td>
-                                        <td class="text-right">
-                                            <a class="btn btn-sm btn-success" href="#"><i class="fa fa-edit"></i> edit</a>
-                                            <a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target="#delete"><i
-                                                    class="fa fa-trash"></i> delete</a>
-                                        </td>
-                                    </tr>
+                                <tbody id="tbody">
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
@@ -192,11 +227,17 @@
             </div>
         </div>
     </div>
-    <!-- Data Table area End-->
+
+
+
+
 <?php include 'includes/footer.php'?>
+<!-- Data Table JS============================================ -->
+<script src="../jquery.min.js"></script>
 <!-- Data Table JS============================================ -->
 <script src="../js/data-table/jquery.dataTables.min.js"></script>
 <script src="../js/data-table/data-table-act.js"></script>
+<script src="js/campus.js"></script>
 
 </body>
 

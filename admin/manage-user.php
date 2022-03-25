@@ -45,13 +45,13 @@
                         </li>
                         <li><a data-toggle="tab" href="#ipdo"><i class="fa fa-user-plus"></i> IPDO </a>
                         </li>
-                        <li><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Reports</a>
+                        <li><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Settings</a>
                         </li>
                         <li><a data-toggle="tab" href="#account"><i class="fa fa-user-secret"></i> Account</a>
                         </li>
                     </ul>
                     <div class="tab-content custom-menu-content">
-                        <div id="Home" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        <div id="Home" class="tab-pane in notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="index.php">Dashboard</a>
                                 </li>
@@ -82,7 +82,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="user" class="tab-pane in active notika-tab-menu-bg animated flipInX">
+                        <div id="user" class="tab-pane active notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="add-user.php">Add User</a>
                                 </li>
@@ -92,15 +92,17 @@
                         </div>
                         <div id="ipdo" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="#">add IPDO</a>
+                                <li><a href="add-ipdo.php">Add IPDO</a>
                                 </li>
-                                <li><a href="#">manage IPDO</a>
+                                <li><a href="manage-ipdo.php">Manage IPDO</a>
                                 </li>
                             </ul>
                         </div>
                         <div id="report" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="reports.php">Event Report</a>
+                            <li><a href="add-types.php">Add Types</a>
+                                </li>
+                                <li><a href="manage-types.php">Manage Types</a>
                                 </li>
                             </ul>
                         </div>
@@ -129,137 +131,19 @@
                         <div class="basic-tb-hd">
                             <h2><i class="fa fa-user"></i> User Lists</h2>
                         </div>
-                        <div class="table-responsive">
-                            <table id="data-table-basic" class="table table-striped">
+                        <div class="bsc-tbl-st">
+                            <table class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Full Name</th>
-                                        <th>Department</th>
-                                        <th>Contact</th>
-                                        <th>Email</th>
-                                        <th>Account Status</th>
+                                        <th>firstname</th>
+                                        <th>lastname</th>
+                                        <th>middlename</th>
+                                        <th>email</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Gloria Little</td>
-                                        <td>Nursing</td>
-                                        <td>09878787876</td>
-                                        <td>email@gmail.com</td>
-                                        <td><span class="badge bg-success">active</span></td>
-                                        <td class="text-right">
-                                            <a class="btn btn-sm btn-success" href="#"><i class="fa fa-edit"></i> edit</a>
-                                            <a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target="#delete"><i
-                                                    class="fa fa-trash"></i> delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jennifer Chang</td>
-                                        <td>Entrepreneurship</td>
-                                        <td>09878787876</td>
-                                        <td>email@gmail.com</td>
-                                        <td><span class="badge bg-success">active</span></td>
-                                        <td class="text-right">
-                                            <a class="btn btn-sm btn-success" href="#"><i class="fa fa-edit"></i> edit</a>
-                                            <a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target="#delete"><i
-                                                    class="fa fa-trash"></i> delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Gavin Joyce</td>
-                                        <td>Engineering</td>
-                                        <td>09878787876</td>
-                                        <td>email@gmail.com</td>
-                                        <td><span class="badge bg-danger">inactive</span></td>
-                                        <td class="text-right">
-                                            <a class="btn btn-sm btn-success" href="#"><i class="fa fa-edit"></i> edit</a>
-                                            <a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target="#delete"><i
-                                                    class="fa fa-trash"></i> delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Angelica Ramos</td>
-                                        <td>Nursing</td>
-                                        <td>09878787876</td>
-                                        <td>email@gmail.com</td>
-                                        <td><span class="badge bg-success">active</span></td>
-                                        <td class="text-right">
-                                            <a class="btn btn-sm btn-success" href="#"><i class="fa fa-edit"></i> edit</a>
-                                            <a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target="#delete"><i
-                                                    class="fa fa-trash"></i> delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Doris Wilder</td>
-                                        <td>Entrepreneurship</td>
-                                        <td>09878787876</td>
-                                        <td>email@gmail.com</td>
-                                        <td><span class="badge bg-success">active</span></td>
-                                        <td class="text-right">
-                                            <a class="btn btn-sm btn-success" href="#"><i class="fa fa-edit"></i> edit</a>
-                                            <a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target="#delete"><i
-                                                    class="fa fa-trash"></i> delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>Caesar Vance</td>
-                                        <td>Engineering</td>
-                                        <td>09878787876</td>
-                                        <td>email@gmail.com</td>
-                                        <td><span class="badge bg-success">active</span></td>
-                                        <td class="text-right">
-                                            <a class="btn btn-sm btn-success" href="#"><i class="fa fa-edit"></i> edit</a>
-                                            <a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target="#delete"><i
-                                                    class="fa fa-trash"></i> delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Yuri Berry</td>
-                                        <td>Engineering</td>
-                                        <td>09878787876</td>
-                                        <td>email@gmail.com</td>
-                                        <td><span class="badge bg-danger">inactive</span></td>
-                                        <td class="text-right">
-                                            <a class="btn btn-sm btn-success" href="#"><i class="fa fa-edit"></i> edit</a>
-                                            <a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target="#delete"><i
-                                                    class="fa fa-trash"></i> delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td>Jenette Caldwell</td>
-                                        <td>Nursing</td>
-                                        <td>09878787876</td>
-                                        <td>email@gmail.com</td>
-                                        <td><span class="badge bg-success">active</span></td>
-                                        <td class="text-right">
-                                            <a class="btn btn-sm btn-success" href="#"><i class="fa fa-edit"></i> edit</a>
-                                            <a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target="#delete"><i
-                                                    class="fa fa-trash"></i> delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>9</td>
-                                        <td>Dai Rios</td>
-                                        <td>Nursing</td>
-                                        <td>09878787876</td>
-                                        <td>email@gmail.com</td>
-                                        <td><span class="badge bg-success">active</span></td>
-                                        <td class="text-right">
-                                            <a class="btn btn-sm btn-success" href="#"><i class="fa fa-edit"></i> edit</a>
-                                            <a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target="#delete"><i
-                                                    class="fa fa-trash"></i> delete</a>
-                                        </td>
-                                    </tr>
+                                <tbody id="tbody">
                                 </tbody>
                             </table>
                         </div>
@@ -269,10 +153,196 @@
         </div>
     </div>
     <!-- Data Table area End-->
+    <!-- Delete -->
+<div class="modal fade" id="deletemodal" role="dialog">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h5>Are you sure you want to delete this data?</h5>
+                                                <div class="form-example-wrap mg-t-50">
+                                                    <form id="deleteform">
+                                                    <input type="hidden" class="id" name="id">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-danger">Save changes</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+    <div class="modal fade" id="editmodal" role="dialog">
+                                    <div class="modal-dialog modal-large">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <form id="editform">
+                                                <div class="modal-body">
+                                                    <div class="cmp-tb-hd cmp-int-hd">
+                                                        <h2>User Information</h2>
+                                                    </div>
+                                                    <div class="form-example-int form-horizental mg-t-15">
+                            <div class="form-group">
+                            <input type="hidden" class="id" name="id">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="hrzn-fm">User ID No.</label>
+                                    </div>
+                                    <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                        <div class="nk-int-st">
+                                            <input type="text" class="form-control input-sm id_no" placeholder="ex. user-234-21" name="id_no">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-example-int form-horizental mg-t-15">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="hrzn-fm">First Name</label>
+                                    </div>
+                                    <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                        <div class="nk-int-st">
+                                            <input type="text" class="form-control input-sm firstname" placeholder="First Name" name="firstname">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-example-int form-horizental mg-t-15">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="hrzn-fm">Last Name</label>
+                                    </div>
+                                    <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                        <div class="nk-int-st">
+                                            <input type="text" class="form-control input-sm lastname" placeholder="Last Name" name="lastname">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-example-int form-horizental mg-t-15">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="hrzn-fm">Middle Name</label>
+                                    </div>
+                                    <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                        <div class="nk-int-st">
+                                            <input type="text" class="form-control input-sm middlename" placeholder="Middle Name" name="middlename">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-example-int form-horizental mg-t-15">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="hrzn-fm">Gender</label>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="nk-int-st">
+                                        <select class="form-control input-sm gender" data-live-search="true" name="gender">
+											<option value="Male">Male</option>
+											<option value="Female">Female</option>
+										</select>
+                                    </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <label class="hrzn-fm">Department</label>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="nk-int-st">
+                                        <select class="form-control input-sm department" data-live-search="true" name="department_id" id="SelectDepartment">
+											<option value="1">Engineering</option>
+											<option value="2">Nursing</option>
+											<option value="3">Entrep</option>
+										</select>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-example-int form-horizental mg-t-15">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="hrzn-fm">Contact</label>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="nk-int-st">
+                                        <input type="text" class="form-control input-sm contact" name="contact">
+                                    </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <label class="hrzn-fm">Email</label>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="nk-int-st">
+                                        <input type="text" class="form-control input-sm email" name="email">
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="form-example-int form-horizental">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="hrzn-fm">Username</label>
+                                    </div>
+                                    <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                        <div class="nk-int-st">
+                                            <input type="text" class="form-control input-sm username" name="username">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-example-int form-horizental mg-t-15">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="hrzn-fm">Password</label>
+                                    </div>
+                                    <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                        <div class="nk-int-st">
+                                            <input type="password" class="form-control input-sm password" name="password">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-default">Save changes</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
 <?php include 'includes/footer.php'?>
 <!-- Data Table JS============================================ -->
+<script src="../jquery.min.js"></script>
 <script src="../js/data-table/jquery.dataTables.min.js"></script>
 <script src="../js/data-table/data-table-act.js"></script>
+
+    <script src="js/user.js"></script>
 
 </body>
 

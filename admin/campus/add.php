@@ -7,9 +7,9 @@
 	$db = $database->open();
 	try{
 		//make use of prepared statement to prevent sql injection
-		$stmt = $db->prepare("INSERT INTO campus (campus_id, name) VALUES (:campus_id, :name)");
+		$stmt = $db->prepare("INSERT INTO campus (name, code) VALUES (:name, :code)");
 		//if-else statement in executing our prepared statement
-		if ($stmt->execute(array(':campus_id' => $_POST['campus_id'] , ':name' => $_POST['name'])) ){
+		if ($stmt->execute(array(':code' => $_POST['code'] , ':name' => $_POST['name'])) ){
 			$output['message'] = 'Member added successfully';
 		}
 		else{

@@ -19,6 +19,7 @@
         </div>
     </div>
     <!-- End Header Top Area -->
+    
     <!-- Main Menu area start-->
     <div class="main-menu-area mg-tb-40">
         <div class="container">
@@ -31,19 +32,19 @@
                         </li>
                         <li><a data-toggle="tab" href="#event"><i class="fa fa-calendar"></i> Event</a>
                         </li>
-                        <li class="active"><a data-toggle="tab" href="#campus"><i class="fa fa-users"></i> Campus</a>
+                        <li><a data-toggle="tab" href="#campus"><i class="fa fa-users"></i> Campus</a>
                         </li>
                         <li><a data-toggle="tab" href="#user"><i class="fa fa-graduation-cap"></i> Users</a>
                         </li>
                         <li><a data-toggle="tab" href="#ipdo"><i class="fa fa-user-plus"></i> IPDO </a>
                         </li>
-                        <li><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Settings</a>
+                        <li class="active"><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Reports</a>
                         </li>
                         <li><a data-toggle="tab" href="#account"><i class="fa fa-user-secret"></i> Account</a>
                         </li>
                     </ul>
                     <div class="tab-content custom-menu-content">
-                        <div id="Home" class="tab-pane in notika-tab-menu-bg animated flipInX">
+                        <div id="Home" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="index.php">Dashboard</a>
                                 </li>
@@ -65,7 +66,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="campus" class="tab-pane active notika-tab-menu-bg animated flipInX">
+                        <div id="campus" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="add-campus.php">Add Campus</a>
                                 </li>
@@ -90,7 +91,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="report" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        <div id="report" class="tab-pane in active notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                             <li><a href="add-types.php">Add Types</a>
                                 </li>
@@ -124,31 +125,17 @@
                     <div class="form-example-wrap mg-t-30">
                         <form id="addForm">
                         <div class="cmp-tb-hd cmp-int-hd">
-                            <h2>Add Campus</h2>
-                        </div>
-                        <div class="form-example-int form-horizental">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
-                                        <label class="hrzn-fm">Campus ID</label>
-                                    </div>
-                                    <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
-                                        <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm code" placeholder="ex. CMPS 001" name="code">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <h2>Adding of Types</h2>
                         </div>
                         <div class="form-example-int form-horizental mg-t-15">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
-                                        <label class="hrzn-fm">Campus Name</label>
+                                        <label class="hrzn-fm">Types Name</label>
                                     </div>
                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm name" placeholder="ex Can-avid" name="name">
+                                            <input type="text" class="form-control input-sm name" name="name">
                                         </div>
                                     </div>
                                 </div>
@@ -160,28 +147,25 @@
                                 </div>
                                 <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                     <button type="submit" class="btn btn-success notika-btn-success">Submit</button>
-                                    </form>
                                 </div>
                             </div>
                         </div>
+                        </form>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
     <!-- Form Element area End-->
-    
-    <!-- Edit modal -->
-    
 
-   <!-- Edit modal -->
+   
 <?php include 'includes/footer.php'?>
-    <!-- datapicker JS
-		============================================ -->
-    <script src="../jquery.min.js"></script>
-    <script src="../js/datapicker/bootstrap-datepicker.js"></script>
-    <script src="../js/datapicker/datepicker-active.js"></script>
-    <script src="js/campus.js"></script>
+<script src="../jquery.min.js"></script>
+<!-- Data Table JS============================================ -->
+<script src="../js/data-table/jquery.dataTables.min.js"></script>
+<script src="../js/data-table/data-table-act.js"></script>
+<script src="js/types.js"></script>
 </body>
 
 </html>

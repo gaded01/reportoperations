@@ -85,15 +85,17 @@
                         </div>
                         <div id="ipdo" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="#">add IPDO</a>
+                                <li><a href="add-ipdo.php">Add IPDO</a>
                                 </li>
-                                <li><a href="#">manage IPDO</a>
+                                <li><a href="manage-ipdo.php">Manage IPDO</a>
                                 </li>
                             </ul>
                         </div>
                         <div id="report" class="tab-pane in active notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="reports.php">Event Report</a>
+                                <li><a href="add-types.php">Add Types</a>
+                                </li>
+                                <li><a href="manage-types.php">Manage Types</a>
                                 </li>
                             </ul>
                         </div>
@@ -121,95 +123,42 @@
         <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-example-wrap mg-t-30">
+                        <form id="addform">
                         <div class="cmp-tb-hd cmp-int-hd">
-                            <h2>Event Reports</h2>
+                            <h2>Adding of Types</h2>
                         </div>
-                        <div class="row">
-                  <div class="col-12 col-md-4 col-lg-4 col-xl-4">
-                     <div class="card">
-                        <div class="card-body">
-                           <table class="table table-bordered mytable">
-                              <thead>
-                                 <td>
-                                    <h6>Event Name</h6>
-                                 </td>
-                                 <td>
-                                    <h6>Present</h6>
-                                 </td>
-                                 <td>
-                                    <h6>Absent</h6>
-                                 </td>
-                              </thead>
-                              <tbody>
-                                 <tr>
-                                    <td>Event 1</td>
-                                    <td>85</td>
-                                    <td>15</td>
-                                 </tr>
-                                 <tr>
-                                    <td>Event 2</td>
-                                    <td>90</td>
-                                    <td>10</td>
-                                 </tr>
-                                 <tr>
-                                    <td>Event 3</td>
-                                    <td>60</td>
-                                    <td>40</td>
-                                 </tr>
-                                 <tr>
-                                    <td>Event 4</td>
-                                    <td>50</td>
-                                    <td>50</td>
-                                 </tr>
-                                 <tr>
-                                    <td>Event 5</td>
-                                    <td>75</td>
-                                    <td>25</td>
-                                 </tr>
-                                 <tr>
-                                    <td>Event 6</td>
-                                    <td>85</td>
-                                    <td>15</td>
-                                 </tr>
-                                 <tr>
-                                    <td>Event 7</td>
-                                    <td>90</td>
-                                    <td>10</td>
-                                 </tr>
-                                 <tr>
-                                    <td>Event 8</td>
-                                    <td>85</td>
-                                    <td>15</td>
-                                 </tr>
-                                 <tr>
-                                    <td>Event 9</td>
-                                    <td>85</td>
-                                    <td>15</td>
-                                 </tr>
-                                 <tr>
-                                    <td>Event 10</td>
-                                    <td>85</td>
-                                    <td>15</td>
-                                 </tr>
-                              </tbody>
-                           </table>
+                        <div class="form-example-int form-horizental mg-t-15">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="hrzn-fm">Types Name</label>
+                                    </div>
+                                    <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                        <div class="nk-int-st">
+                                            <input type="text" class="form-control input-sm code" placeholder="ex Engineering" name="types">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-                  <div class="col-12 col-md-8 col-lg-8 col-xl-8">
-                     <div class="card">
-                        <div class="card-body">
-                           <canvas id="bargraph" height="230"></canvas>
+                        <div class="form-example-int mg-t-15">
+                            <div class="row">
+                                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                </div>
+                                <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                    <button type="submit" class="btn btn-success notika-btn-success">Submit</button>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-               </div>
+                        </form>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
     <!-- Form Element area End-->
+
    
 <?php include 'includes/footer.php'?>
 <script src="../js/chart.js"></script>

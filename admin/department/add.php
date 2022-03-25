@@ -7,10 +7,10 @@
 	$db = $database->open();
 	try{
 		//make use of prepared statement to prevent sql injection
-		$stmt = $db->prepare("INSERT INTO members (firstname, lastname, address) VALUES (:firstname, :lastname, :address)");
+		$stmt = $db->prepare("INSERT INTO department (name, code) VALUES (:name, :code)");
 		//if-else statement in executing our prepared statement
-		if ($stmt->execute(array(':firstname' => $_POST['firstname'] , ':lastname' => $_POST['lastname'] , ':address' => $_POST['address'])) ){
-			$output['message'] = 'Member added successfully';
+		if ($stmt->execute(array(':name' => $_POST['name'] , ':code' => $_POST['code'])) ){
+			$output['message'] = 'Department added successfully';
 		}
 		else{
 			$output['error'] = true;

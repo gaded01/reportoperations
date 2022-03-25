@@ -38,13 +38,13 @@
                         </li>
                         <li><a data-toggle="tab" href="#ipdo"><i class="fa fa-user-plus"></i> IPDO </a>
                         </li>
-                        <li><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Reports</a>
+                        <li><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Settings</a>
                         </li>
                         <li><a data-toggle="tab" href="#account"><i class="fa fa-user-secret"></i> Account</a>
                         </li>
                     </ul>
                     <div class="tab-content custom-menu-content">
-                        <div id="Home" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        <div id="Home" class="tab-pane in notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="index.php">Dashboard</a>
                                 </li>
@@ -58,7 +58,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="event" class="tab-pane in active notika-tab-menu-bg animated flipInX">
+                        <div id="event" class="tab-pane active notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="add-event.php">Add Event</a>
                                 </li>
@@ -85,15 +85,17 @@
                         </div>
                         <div id="ipdo" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="#">add IPDO</a>
+                                <li><a href="add-ipdo.php">Add IPDO</a>
                                 </li>
-                                <li><a href="#">manage IPDO</a>
+                                <li><a href="manage-ipdo.php">Manage IPDO</a>
                                 </li>
                             </ul>
                         </div>
                         <div id="report" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="reports.php">Attendance Report</a>
+                                <li><a href="add-types.php">Add Types</a>
+                                </li>
+                                <li><a href="manage-types.php">Manage Types</a>
                                 </li>
                             </ul>
                         </div>
@@ -117,7 +119,6 @@
     <!-- Form Element area Start-->
     <div class="form-element-area">
         <div class="container">
-            
         <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-example-wrap mg-t-30">
@@ -139,12 +140,20 @@
                             </div>
                         </div>
                         <div class="form-example-int form-horizental mg-t-15">
-                            <div class="form-group">
+                            <div class="form-control">
                                 <div class="row">
                                     <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
                                         <label class="hrzn-fm">Description</label>
                                     </div>
-                                    <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                    <div class="col-lg-4 col-md-7 col-sm-7 col-xs-12">
+                                        <div class="nk-int-st">
+                                            <textarea class="form-control input-sm" placeholder="Description"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="hrzn-fm">Description</label>
+                                    </div>
+                                    <div class="col-lg-4 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
                                             <textarea class="form-control input-sm" placeholder="Description"></textarea>
                                         </div>

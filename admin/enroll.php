@@ -66,7 +66,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="faculty" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        <div id="campus" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="add-faculty.php">Add Faculty</a>
                                 </li>

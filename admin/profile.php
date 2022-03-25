@@ -34,13 +34,13 @@
                         </li>
                         <li><a data-toggle="tab" href="#ipdo"><i class="fa fa-user-plus"></i> IPDO </a>
                         </li>
-                        <li><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Reports</a>
+                        <li><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Settings</a>
                         </li>
                         <li class="active"><a data-toggle="tab" href="#account"><i class="fa fa-user-secret"></i> Account</a>
                         </li>
                     </ul>
                     <div class="tab-content custom-menu-content">
-                        <div id="Home" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        <div id="Home" class="tab-pane in notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="index.php">Dashboard</a>
                                 </li>
@@ -81,19 +81,21 @@
                         </div>
                         <div id="ipdo" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="#">add IPDO</a>
+                                <li><a href="add-ipdo.php">Add IPDO</a>
                                 </li>
-                                <li><a href="#">manage IPDO</a>
+                                <li><a href="manage-ipdo.php">Manage IPDO</a>
                                 </li>
                             </ul>
                         </div>
                         <div id="report" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="reports.php">Attendance Report</a>
+                            <li><a href="add-types.php">Add Types</a>
+                                </li>
+                                <li><a href="manage-types.php">Manage Types</a>
                                 </li>
                             </ul>
                         </div>
-                        <div id="account" class="tab-pane in active notika-tab-menu-bg animated flipInX">
+                        <div id="account" class="tab-pane active notika-tab-menu-bg animated flipInX">
                         <ul class="notika-main-menu-dropdown">
                                 <li><a href="profile.php">Profile</a>
                                 </li>
