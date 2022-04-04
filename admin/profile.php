@@ -1,7 +1,30 @@
 <!doctype html>
 <html class="no-js" lang="en">
 
-<?php include 'includes/header.php'?>
+<?php
+include 'includes/header.php';
+include_once('../configs/Database.php');
+
+$output = array('error' => false);
+
+$database = new Connection();
+$db = $database->open();
+// Start the session
+session_start();
+// print_r($_SESSION["id"]);
+$user_id = $_SESSION["id"];
+$output = array();
+try{
+    $stmt = $db->prepare("SELECT * FROM users WHERE id = :id");
+    $stmt->bindParam(':id', $user_id);
+    $stmt->execute();
+    $output['data'] = $stmt->fetch();
+    // print_r($output);
+}
+catch(PDOException $e){
+    echo "There is some problem in connection: " . $e->getMessage();
+}
+?>
 <body>
     <!-- Start Header Top Area -->
     <div class="header-top-area">
@@ -32,8 +55,18 @@
                         </li>
                         <li><a data-toggle="tab" href="#user"><i class="fa fa-graduation-cap"></i> Users</a>
                         </li>
-                        <li><a data-toggle="tab" href="#ipdo"><i class="fa fa-user-plus"></i> IPDO </a>
-                        </li>
+                        <?php
+                            if($_SESSION["role"] == "OPCR Admin" || $_SESSION["role"] == "SUPER Admin")
+                            {
+                                echo '<li><a data-toggle="tab" href="#opcr"><i class="fa fa-user-plus"></i> OPCR </a></li>';
+                            }
+                            if ($_SESSION["role"] == "DPCR Admin" || $_SESSION["role"] == "SUPER Admin"){
+                                echo '<li><a data-toggle="tab" href="#dpcr"><i class="fa fa-user-plus"></i> DPCR </a></li>';
+                            }
+                            if($_SESSION["role"] == "BAR1 Admin" || $_SESSION["role"] == "SUPER Admin"){
+                                echo '<li><a data-toggle="tab" href="#bar1"><i class="fa fa-user-plus"></i> BAR1 </a></li>';
+                            }
+                        ?>
                         <li><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Settings</a>
                         </li>
                         <li class="active"><a data-toggle="tab" href="#account"><i class="fa fa-user-secret"></i> Account</a>
@@ -79,11 +112,27 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="ipdo" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        <div id="opcr" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="add-ipdo.php">Add IPDO</a>
+                                <li><a href="add-opcr-form.php">Add Form</a>
                                 </li>
-                                <li><a href="manage-ipdo.php">Manage IPDO</a>
+                                <li><a href="manage-opcr-form.php">Manage Forms</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="dpcr" class="tab-pane notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="add-dpcr-form.php">Add Form</a>
+                                </li>
+                                <li><a href="manage-dpcr-form.php">Manage Forms</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="bar1" class="tab-pane notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="add-bar1-form.php">Add Form</a>
+                                </li>
+                                <li><a href="manage-bar1-form.php">Manage Forms</a>
                                 </li>
                             </ul>
                         </div>
@@ -99,9 +148,7 @@
                         <ul class="notika-main-menu-dropdown">
                                 <li><a href="profile.php">Profile</a>
                                 </li>
-                                <li><a href="#">Account</a>
-                                </li>
-                                <li><a href="../">Logout</a>
+                                <li><a href="logout.php">Logout</a>
                                 </li>
                             </ul>
                         </div>
@@ -117,6 +164,7 @@
         <div class="container">
             
         <div class="row">
+            <form action="">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-example-wrap mg-t-30">
                         <div class="cmp-tb-hd cmp-int-hd">
@@ -130,7 +178,7 @@
                                     </div>
                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" Value="Admin">
+                                            <input type="text" class="form-control input-sm" Value="<?php echo $output['data']['firstname']?>">
                                         </div>
                                     </div>
                                 </div>
@@ -144,7 +192,7 @@
                                     </div>
                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" Value="Admin">
+                                            <input type="text" class="form-control input-sm" Value="<?php echo $output['data']['lastname']?>">
                                         </div>
                                     </div>
                                 </div>
@@ -158,7 +206,7 @@
                                     </div>
                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" Value="Admin">
+                                            <input type="text" class="form-control input-sm" Value="<?php echo $output['data']['middlename']?>">
                                         </div>
                                     </div>
                                 </div>
@@ -172,7 +220,7 @@
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="nk-int-st">
-                                        <input type="text" class="form-control input-sm" Value="09123456789">
+                                        <input type="text" class="form-control input-sm" Value="<?php echo $output['data']['contact']?>">
                                     </div>
                                     </div>
                                 <div class="row">
@@ -181,18 +229,9 @@
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="nk-int-st">
-                                        <input type="text" class="form-control input-sm" Value="Admin@gmail.com">
+                                        <input type="text" class="form-control input-sm" Value="<?php echo $output['data']['email']?>">
                                     </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-example-int mg-t-15">
-                            <div class="row">
-                                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
-                                </div>
-                                <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
-                                    <button class="btn btn-success notika-btn-success">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -214,7 +253,7 @@
                                     </div>
                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" Value="Admin">
+                                            <input type="text" class="form-control input-sm" Value="<?php echo $output['data']['username']?>">
                                         </div>
                                     </div>
                                 </div>
@@ -228,7 +267,7 @@
                                     </div>
                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <input type="password" class="form-control input-sm" Value="*********">
+                                            <input type="password" class="form-control input-sm" Value="<?php echo $output['data']['password']?>">
                                         </div>
                                     </div>
                                 </div>
@@ -247,6 +286,7 @@
                 </div>
             </div>
         </div>
+        </form>
     </div>
     <!-- Form Element area End-->
    

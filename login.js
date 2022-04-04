@@ -1,14 +1,14 @@
 $(document).ready(function(){
-	fetch();
+	// fetch();
 	//add
-	$('#addform').submit(function(e){
+	$('#login').submit(function(e){
 		e.preventDefault();
-		var addform = $(this).serialize();
+		var login = $(this).serialize();
 		//console.log(addform);
 		$.ajax({
 			method: 'POST',
-			url: 'users/add.php',
-			data: addform,
+			url: 'login.php',
+			data: login,
 			dataType: 'json',
 			success: function(response){
 				if(response.error){
@@ -125,11 +125,8 @@ function getDetails(id){
 				$('.username').val(response.data.username);
 				$('.password').val(response.data.password);
 				$('.campus_id').val(response.data.campus_id);
-				$('.department').val(response.data.department_id);
-				$('.role').val(response.data.role_id);
 				// $('.department_id').val(response.data.department_id);
 				$(".department option:selected").val(response.data.department_id);
-				$(".role option:selected").val(response.data.role_id);
 			}
 		}
 	});

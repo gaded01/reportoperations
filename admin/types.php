@@ -103,8 +103,6 @@
                         <ul class="notika-main-menu-dropdown">
                                 <li><a href="profile.php">Profile</a>
                                 </li>
-                                <li><a href="#">Account</a>
-                                </li>
                                 <li><a href="../">Logout</a>
                                 </li>
                             </ul>

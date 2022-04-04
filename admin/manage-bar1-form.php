@@ -1,11 +1,10 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en">
 
-<?php include 'includes/header.php';
-session_start();
-?>
-<!-- Data Table JS============================================ -->
-<link rel="stylesheet" href="../css/jquery.dataTables.min.css">
+<?php include 'includes/header.php'?>
+    <!-- datapicker CSS
+		============================================ -->
+    <link rel="stylesheet" href="../css/datapicker/datepicker3.css">
 <body>
     <!-- Start Header Top Area -->
     <div class="header-top-area">
@@ -31,7 +30,7 @@ session_start();
                         </li>
                         <li><a data-toggle="tab" href="#department"><i class="fa fa-building"></i> Department</a>
                         </li>
-                        <li class="active"><a data-toggle="tab" href="#event"><i class="fa fa-calendar"></i> Event</a>
+                        <li><a data-toggle="tab" href="#event"><i class="fa fa-calendar"></i> Event</a>
                         </li>
                         <li><a data-toggle="tab" href="#campus"><i class="fa fa-users"></i> Campus</a>
                         </li>
@@ -46,7 +45,7 @@ session_start();
                                 echo '<li><a data-toggle="tab" href="#dpcr"><i class="fa fa-user-plus"></i> DPCR </a></li>';
                             }
                             if($_SESSION["role"] == "BAR1 Admin" || $_SESSION["role"] == "SUPER Admin"){
-                                echo '<li><a data-toggle="tab" href="#bar1"><i class="fa fa-user-plus"></i> BAR1 </a></li>';
+                                echo '<li class="active"><a data-toggle="tab" href="#bar1"><i class="fa fa-user-plus"></i> BAR1 </a></li>';
                             }
                         ?>
                         <li><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Settings</a>
@@ -69,7 +68,7 @@ session_start();
                                 </li>
                             </ul>
                         </div>
-                        <div id="event" class="tab-pane active notika-tab-menu-bg animated flipInX">
+                        <div id="event" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="add-event.php">Add Event</a>
                                 </li>
@@ -110,7 +109,7 @@ session_start();
                                 </li>
                             </ul>
                         </div>
-                        <div id="bar1" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        <div id="bar1" class="tab-pane active notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="add-bar1-form.php">Add Form</a>
                                 </li>
@@ -140,28 +139,31 @@ session_start();
         </div>
     </div>
     <!-- Main Menu area End-->
-    <!-- Data Table area Start-->
+
     <div class="data-table-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="data-table-list">
                         <div class="basic-tb-hd">
-                            <h2><i class="fa fa-calendar"></i> Event Lists</h2>
+                            <h2><i class="fa fa-building"></i> Campus Lists</h2>
                         </div>
-                        <div class="table-responsive">
-                            <table id="data-table-basic" class="table table-striped">
+                        <div class="bsc-tbl-st">
+                            <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Event Name</th>
-                                        <th>Description</th>
-                                        <th>Date</th>
-                                        <th>Banner</th>
+                                        <th>#</th>
+                                        <th>Department</th>
+                                        <th>Rating</th>
+                                        <th>Year</th>
+                                        <th>Type</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="tbody">
                                 </tbody>
+                                <tfoot>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
@@ -169,11 +171,14 @@ session_start();
             </div>
         </div>
     </div>
-<?php include 'includes/footer.php'?>
-<!-- Data Table JS============================================ -->
-<script src="../js/data-table/jquery.dataTables.min.js"></script>
-<script src="../js/data-table/data-table-act.js"></script>
 
+    <?php include 'includes/footer.php'?>
+    <!-- datapicker JS
+		============================================ -->
+    <script src="../jquery.min.js"></script>
+    <script src="../js/datapicker/bootstrap-datepicker.js"></script>
+    <script src="../js/datapicker/datepicker-active.js"></script>
+    <script src="js/file_upload.js"></script>
 </body>
 
 </html>

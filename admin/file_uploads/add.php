@@ -29,26 +29,25 @@
 				if(move_uploaded_file($fileTmpName, $fileDestination))
 				{
 					//make use of prepared statement to prevent sql injection
-					$stmt = $db->prepare("INSERT INTO ipdo (from_date, to_date, department_id, type_id, filename, filepath, year) VALUES (:from_date, :to_date, :department_id, :type_id, :filename, :filepath, :year)");
+					$stmt = $db->prepare("INSERT INTO fileuploads (from_date, to_date, department_id, type_id, filename, filepath, year) VALUES (:from_date, :to_date, :department_id, :type_id, :filename, :filepath, :year)");
 					//if-else statement in executing our prepared statement
-					if ($stmt->execute(array(':from_date' => $_POST['from_date'] , ':to_date' => $_POST['to_date'] , ':department_id' => $_POST['department_id'] , ':type_id' => $_POST['type_id'] , ':filename' => $_POST['filename'] , ':filepath' => $fileDestination, ':year' => $_POST['year'])) ){
+					if ($stmt->execute(array(':from_date' => $_POST['from_date'] , ':to_date' => $_POST['to_date'] , ':department_id' => $_POST['department_id'] , ':type_id' => $_POST['type_id'] , ':filename' => $_POST['filename'] , ':filepath' => $fileNameNew, ':year' => $_POST['year'])) ){
 						$output['message'] = 'IPDO added successfully';
+						header("Location: ../add-opcr-form.php");
 					}
 					else{
 						$output['error'] = true;
 						$output['message'] = 'Something went wrong. Cannot add member';
 					}
 				}
-				header("Location: ../add-ipdo.php");
+				header("Location: ../add-opcr-form.php");
 			}else {
 				echo "There was an error uploading your file!";
 			}
 
 		}
 
-		print_r($file);
-
-		header("Location: ../add-ipdo.php");
+		header("Location: ../add-opcr-form.php");
 	}
 	catch(PDOException $e){
 		$output['error'] = true;

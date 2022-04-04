@@ -17,9 +17,22 @@
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 		$campus_id = $_POST['campus_id'];
-		$department_id = $_POST['department_id'];
+		$department_id = $_POST['department'];
+		$role_id = $_POST['role_id'];
 
-		$sql = "UPDATE users SET id_no = '$id_no', firstname = '$firstname', lastname = '$lastname', middlename = '$middlename', gender = '$gender', email = '$email', contact = '$contact', username = '$username', password = '$password', campus_id = '$campus_id', department_id = '$department_id' WHERE id = '$id'";
+		$sql = "UPDATE users SET id_no = '$id_no', 
+		firstname = '$firstname', 
+		lastname = '$lastname', 
+		middlename = '$middlename', 
+		gender = '$gender', 
+		email = '$email', 
+		contact = '$contact', 
+		username = '$username', 
+		password = '$password', 
+		campus_id = '$campus_id', 
+		department_id = '$department_id', 
+		role_id = '$role_id' 
+		WHERE id = '$id'";
 		//if-else statement in executing our query
 		if($db->exec($sql)){
 			$output['message'] = 'User updated successfully';

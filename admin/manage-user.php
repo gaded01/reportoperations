@@ -1,7 +1,16 @@
 <!doctype html>
 <html class="no-js" lang="">
 
-<?php include 'includes/header.php'?>
+<?php include 'includes/header.php';
+    include_once('../configs/Database.php');
+
+	$output = array('error' => false);
+
+	$database = new Connection();
+	$db = $database->open();
+    session_start();
+
+    ?>
 <style>
     .bg-success{
         background-color:rgb(120,187,123);
@@ -43,8 +52,18 @@
                         </li>
                         <li class="active"><a data-toggle="tab" href="#user"><i class="fa fa-graduation-cap"></i> Users</a>
                         </li>
-                        <li><a data-toggle="tab" href="#ipdo"><i class="fa fa-user-plus"></i> IPDO </a>
-                        </li>
+                        <?php
+                            if($_SESSION["role"] == "OPCR Admin" || $_SESSION["role"] == "SUPER Admin")
+                            {
+                                echo '<li><a data-toggle="tab" href="#opcr"><i class="fa fa-user-plus"></i> OPCR </a></li>';
+                            }
+                            if ($_SESSION["role"] == "DPCR Admin" || $_SESSION["role"] == "SUPER Admin"){
+                                echo '<li><a data-toggle="tab" href="#dpcr"><i class="fa fa-user-plus"></i> DPCR </a></li>';
+                            }
+                            if($_SESSION["role"] == "BAR1 Admin" || $_SESSION["role"] == "SUPER Admin"){
+                                echo '<li><a data-toggle="tab" href="#bar1"><i class="fa fa-user-plus"></i> BAR1 </a></li>';
+                            }
+                        ?>
                         <li><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Settings</a>
                         </li>
                         <li><a data-toggle="tab" href="#account"><i class="fa fa-user-secret"></i> Account</a>
@@ -90,11 +109,27 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="ipdo" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        <div id="opcr" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="add-ipdo.php">Add IPDO</a>
+                                <li><a href="add-opcr-form.php">Add Form</a>
                                 </li>
-                                <li><a href="manage-ipdo.php">Manage IPDO</a>
+                                <li><a href="manage-opcr-form.php">Manage Forms</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="dpcr" class="tab-pane notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="add-dpcr-form.php">Add Form</a>
+                                </li>
+                                <li><a href="manage-dpcr-form.php">Manage Forms</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="bar1" class="tab-pane notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="add-bar1-form.php">Add Form</a>
+                                </li>
+                                <li><a href="manage-bar1-form.php">Manage Forms</a>
                                 </li>
                             </ul>
                         </div>
@@ -110,9 +145,7 @@
                         <ul class="notika-main-menu-dropdown">
                                 <li><a href="profile.php">Profile</a>
                                 </li>
-                                <li><a href="#">Account</a>
-                                </li>
-                                <li><a href="../">Logout</a>
+                                <li><a href="logout.php">Logout</a>
                                 </li>
                             </ul>
                         </div>
@@ -252,24 +285,46 @@
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="nk-int-st">
-                                        <select class="form-control input-sm gender" data-live-search="true" name="gender">
-											<option value="Male">Male</option>
-											<option value="Female">Female</option>
-										</select>
+                                            <select class="form-control input-sm gender" data-live-search="true" name="gender">
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                            </select>
+                                        </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <label class="hrzn-fm">Department</label>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="nk-int-st">
+                                                <select name="department" id="from_select" class="form-control department">
+                                                    <?php
+                                                    $sql = 'SELECT * FROM department';
+                                                    foreach ($db->query($sql) as $row) {
+                                                    ?>
+                                                    <option value=" <?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-example-int form-horizental mg-t-15">
+                            <div class="form-group">
                                 <div class="row">
-                                    <div class="col-lg-2">
-                                        <label class="hrzn-fm">Department</label>
+                                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                        <label class="hrzn-fm">Role</label>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="nk-int-st">
-                                        <select class="form-control input-sm department" data-live-search="true" name="department_id" id="SelectDepartment">
-											<option value="1">Engineering</option>
-											<option value="2">Nursing</option>
-											<option value="3">Entrep</option>
-										</select>
-                                    </div>
+                                            <select class="form-control input-sm role" data-live-search="true" name="role_id">
+                                                <option value="OPCR Admin">OPCR Admin</option>
+                                                <option value="DPCR Admin">DPCR Admin</option>
+                                                <option value="BAR1 Admin">BAR1 Admin</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

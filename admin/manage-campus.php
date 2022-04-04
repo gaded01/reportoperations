@@ -1,3 +1,12 @@
+<?php
+session_start();
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: ../index.php");
+    exit;
+}
+?>
+
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -43,8 +52,18 @@
                         </li>
                         <li><a data-toggle="tab" href="#user"><i class="fa fa-graduation-cap"></i> Users</a>
                         </li>
-                        <li><a data-toggle="tab" href="#ipdo"><i class="fa fa-user-plus"></i> IPDO </a>
-                        </li>
+                        <?php
+                            if($_SESSION["role"] == "OPCR Admin" || $_SESSION["role"] == "SUPER Admin")
+                            {
+                                echo '<li><a data-toggle="tab" href="#opcr"><i class="fa fa-user-plus"></i> OPCR </a></li>';
+                            }
+                            if ($_SESSION["role"] == "DPCR Admin" || $_SESSION["role"] == "SUPER Admin"){
+                                echo '<li><a data-toggle="tab" href="#dpcr"><i class="fa fa-user-plus"></i> DPCR </a></li>';
+                            }
+                            if($_SESSION["role"] == "BAR1 Admin" || $_SESSION["role"] == "SUPER Admin"){
+                                echo '<li><a data-toggle="tab" href="#bar1"><i class="fa fa-user-plus"></i> BAR1 </a></li>';
+                            }
+                        ?>
                         <li><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Settings</a>
                         </li>
                         <li><a data-toggle="tab" href="#account"><i class="fa fa-user-secret"></i> Account</a>
@@ -90,11 +109,27 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="ipdo" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        <div id="opcr" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="add-ipdo.php">Add IPDO</a>
+                                <li><a href="add-opcr-form.php">Add Form</a>
                                 </li>
-                                <li><a href="manage-ipdo.php">Manage IPDO</a>
+                                <li><a href="manage-opcr-form.php">Manage Forms</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="dpcr" class="tab-pane notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="add-dpcr-form.php">Add Form</a>
+                                </li>
+                                <li><a href="manage-dpcr-form.php">Manage Forms</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="bar1" class="tab-pane notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="add-bar1-form.php">Add Form</a>
+                                </li>
+                                <li><a href="manage-bar1-form.php">Manage Forms</a>
                                 </li>
                             </ul>
                         </div>
@@ -110,9 +145,7 @@
                         <ul class="notika-main-menu-dropdown">
                                 <li><a href="profile.php">Profile</a>
                                 </li>
-                                <li><a href="#">Account</a>
-                                </li>
-                                <li><a href="../">Logout</a>
+                                <li><a href="logout.php">Logout</a>
                                 </li>
                             </ul>
                         </div>

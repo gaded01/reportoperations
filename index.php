@@ -49,28 +49,45 @@
 </head>
 
 <body>
+  
     <!-- Login Register area Start-->
+    <form id="login" action="login.php" method="POST">
     <div class="login-content">
+      
         <!-- Login -->
+        <form action="login.php" method="POST">
         <div class="nk-block toggled" id="l-login">
             <div class="nk-form">
+            <?php
+  if (isset($_GET['error']))
+  {
+    echo '<div class="alert-hd">';
+    echo '<div class="alert alert-danger alert-dismissible alert-mg-b-0" role="alert">';
+    echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"></span></button> Username or Password is incorrect';
+    echo '</div>' ;
+    echo '</div>' ;
+  }
+  ?>
                         <a href="#"><img src="img/logo/login-logo.png" alt="" /></a>
                 <div class="input-group">
                     <span class="input-group-addon nk-ic-st-pro"><i class="fa fa-user"></i></span>
                     <div class="nk-int-st">
-                        <input type="text" class="form-control" placeholder="Username">
+                        <input type="text" class="form-control" placeholder="Username" name="username">
                     </div>
                 </div>
                 <div class="input-group mg-t-15">
                     <span class="input-group-addon nk-ic-st-pro"><i class="fa fa-lock"></i></span>
                     <div class="nk-int-st">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" class="form-control" placeholder="Password" name="password">
                     </div>
                 </div><br>
-                <a class="btn btn-sm btn-success" href="admin">Login as Admin</a>
+                <button type="submit" class="btn btn-success notika-btn-success">Login</button>
             </div>
-            
+            </form>
         </div>
+        </form>
+
+        <script src="jquery.min.js"></script>
     <!-- jquery
 		============================================ -->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>

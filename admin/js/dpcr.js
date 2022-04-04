@@ -1,29 +1,10 @@
 $(document).ready(function(){
 	fetch();
-	//add
-	$('#addform').submit(function(e){
+	$('#addForm').submit(function(e){
+        
 		e.preventDefault();
 		var addform = $(this).serialize();
-		//console.log(addform);
-		$.ajax({
-			method: 'POST',
-			url: 'users/add.php',
-			data: addform,
-			dataType: 'json',
-			success: function(response){
-				if(response.error){
-					// $('#alert').show();
-					// $('#alert_message').html(response.message);
-					console.log(response.message)
-				}
-				else{
-					// $('#alert').show();
-					// $('#alert_message').html(response.message);
-					// fetch();
-					console.log(response.message)
-				}
-			}
-		});
+		console.log(addform);
 	});
 	//
 
@@ -35,28 +16,30 @@ $(document).ready(function(){
 	$('#editform').submit(function(e){
 		e.preventDefault();
 		var editform = $(this).serialize();
-		console.log(editform);
+        console.log(editform);
 		$.ajax({
 			method: 'POST',
-			url: 'users/edit.php',
+			url: 'campus/edit.php',
 			data: editform,
 			dataType: 'json',
 			success: function(response){
 				if(response.error){
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
-					console.log(response.message);
+                    console.log(response.message);
 				}
 				else{
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
-					console.log(response.message);
+                    console.log(response.message);
 					fetch();
+					$('.id').val("");
+					$('.name').val("");
+					$('.code').val("");
 				}
 			}
 		});
-		fetch();
-		$('.close').click();
+        $('.close').click();
 	});
 	//
 
@@ -68,9 +51,10 @@ $(document).ready(function(){
 	$('#deleteform').submit(function(e){
 		e.preventDefault();
 		var deleteform = $(this).serialize();
+        console.log(editform);
 		$.ajax({
 			method: 'POST',
-			url: 'users/delete.php',
+			url: 'campus/delete.php',
 			data: deleteform,
 			dataType: 'json',
 			success: function(response){
@@ -89,15 +73,22 @@ $(document).ready(function(){
 		});
         $('.close').click();
 	});
+	//
+
+	//hide message
+	// $(document).on('click', '.close', function(){
+	// 	$('#alert').hide();
+	// });
 
 });
 
 function fetch(){
 	$.ajax({
 		method: 'POST',
-		url: 'users/fetch.php',
+		url: 'file_uploads/fetch.php',
 		success: function(response){
 			$('#tbody').html(response);
+			console.log(response);
 		}
 	});
 }
@@ -105,31 +96,25 @@ function fetch(){
 function getDetails(id){
 	$.ajax({
 		method: 'POST',
-		url: 'users/fetch_row.php',
+		url: 'campus/fetch_row.php',
 		data: {id:id},
 		dataType: 'json',
 		success: function(response){
-			console.log(response);
 			if(response.error){
+				// $('#edit').modal('hide');
+				// $('#delete').modal('hide');
 				// $('#alert').show();
-				// $('#alert_message').html(response.message);
+				$('#alert_message').html(response.message);
 			}
 			else{
 				$('.id').val(response.data.id);
-				$('.id_no').val(response.data.id_no);
-				$('.firstname').val(response.data.firstname);
-				$('.lastname').val(response.data.lastname);
-				$('.gender').val(response.data.gender);
-				$('.email').val(response.data.email);
-				$('.contact').val(response.data.contact);
-				$('.username').val(response.data.username);
-				$('.password').val(response.data.password);
-				$('.campus_id').val(response.data.campus_id);
-				$('.department').val(response.data.department_id);
-				$('.role').val(response.data.role_id);
-				// $('.department_id').val(response.data.department_id);
-				$(".department option:selected").val(response.data.department_id);
-				$(".role option:selected").val(response.data.role_id);
+				$('.name').val(response.data.name);
+				$('.code').val(response.data.code);
+				$('.status').val(response.data.status);
+                console.log(response.data.id);
+                console.log(response.data.name);
+                console.log(response.data.code);
+                console.log(response.data.status);
 			}
 		}
 	});
