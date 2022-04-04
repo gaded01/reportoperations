@@ -6,7 +6,10 @@
 	$num = 1;
 
 	try{	
-	    $sql = 'SELECT fileuploads.id, d.name dname, filepath, from_date, to_date, year, types.name AS tname FROM fileuploads LEFT JOIN department d ON fileuploads.department_id = d.id LEFT JOIN types ON fileuploads.type_id = types.id';
+	    $sql = "SELECT fileuploads.id, d.name dname, filepath, from_date, to_date, year, types.name AS tname 
+		FROM fileuploads LEFT JOIN department d ON fileuploads.department_id = d.id 
+		LEFT JOIN types ON fileuploads.type_id = types.id 
+		WHERE role_id = 'opcr'";
 
 	    foreach ($db->query($sql) as $row) {
 			$filename = $row['filepath'];
@@ -22,7 +25,7 @@
 						a { color: #ffffff;}
 					</style>
 	    			<button class="btn btn-success btn-sm edit" data-id="<?php echo $row['filepath']; ?>">
-						<a href="assets/<?php echo $row['filepath']; ?>" target="_blank">
+						<a href="assets/opcr/<?php echo $row['filepath']; ?>" target="_blank">
 							<span class="glyphicon glyphicon-edit"></span>
 							View
 						</a>

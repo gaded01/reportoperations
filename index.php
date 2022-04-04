@@ -1,3 +1,37 @@
+<?php
+
+    include_once('configs/Database.php');
+
+    $output = array('error' => false);
+
+	$database = new Connection();
+	$db = $database->open();
+  $username = "admin";
+  $password = "admin";
+  $role = "SUPER Admin";
+
+	try{
+		$stmt = $db->prepare("SELECT * FROM users");
+		$stmt->execute();
+    $count = $stmt->rowCount();
+    $output['data'] = $stmt->fetch();
+    
+    if ($count === 0) {
+      $stmt = $db->prepare("INSERT INTO users (username, password, role_id) VALUES (:username, :password, :role)");
+      $stmt->bindParam(':username', $username);
+      $stmt->bindParam(':password', $password);
+      $stmt->bindParam(':role', $role);
+      $stmt->execute();
+    }
+	}
+	catch(PDOException $e){
+		$output['error'] = true;
+		$output['message'] = $e->getMessage();
+	}
+	$database->close();
+
+
+?>
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -59,6 +93,7 @@
         <div class="nk-block toggled" id="l-login">
             <div class="nk-form">
             <?php
+  
   if (isset($_GET['error']))
   {
     echo '<div class="alert-hd">';

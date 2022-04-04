@@ -51,10 +51,9 @@ $(document).ready(function(){
 	$('#deleteform').submit(function(e){
 		e.preventDefault();
 		var deleteform = $(this).serialize();
-        console.log(editform);
 		$.ajax({
 			method: 'POST',
-			url: 'campus/delete.php',
+			url: 'dpcr/delete.php',
 			data: deleteform,
 			dataType: 'json',
 			success: function(response){
@@ -85,7 +84,7 @@ $(document).ready(function(){
 function fetch(){
 	$.ajax({
 		method: 'POST',
-		url: 'file_uploads/fetch.php',
+		url: 'dpcr/fetch.php',
 		success: function(response){
 			$('#tbody').html(response);
 			console.log(response);
@@ -96,7 +95,7 @@ function fetch(){
 function getDetails(id){
 	$.ajax({
 		method: 'POST',
-		url: 'campus/fetch_row.php',
+		url: 'dpcr/fetch_row.php',
 		data: {id:id},
 		dataType: 'json',
 		success: function(response){
@@ -111,6 +110,7 @@ function getDetails(id){
 				$('.name').val(response.data.name);
 				$('.code').val(response.data.code);
 				$('.status').val(response.data.status);
+				$('.filename').val(response.data.filepath);
                 console.log(response.data.id);
                 console.log(response.data.name);
                 console.log(response.data.code);

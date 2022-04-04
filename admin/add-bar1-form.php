@@ -162,9 +162,10 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-example-wrap mg-t-30">
                         <div class="cmp-tb-hd cmp-int-hd">
-                            <h2>Add Event</h2>
+                            <h2>Add Form</h2>
                         </div>
-                        <form id="addForm" action="file_uploads/add.php" method="POST" enctype="multipart/form-data">
+                        <form id="addForm" action="bar1/add.php" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="role_id" value="bar1">
                         <div class="form-example-int form-horizental mg-t-15">
                             <div class="form-group">
                                 <div class="row">

@@ -160,6 +160,7 @@
                             <h2>Add Event</h2>
                         </div>
                         <form id="addForm" action="file_uploads/add.php" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="role_id" value="opcr">
                         <div class="form-example-int form-horizental mg-t-15">
                             <div class="form-group">
                                 <div class="row">

@@ -10,11 +10,12 @@ CREATE TABLE `users` (
   `username` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `campus_id` int(30) NOT NULL,
-  `role_id` int(30) NOT NULL,
+  `role_id` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `department_id` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE `ipdo` (
+
+CREATE TABLE `fileuploads` (
   `id` int(11) NOT NULL,
   `from_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `to_date` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -22,7 +23,8 @@ CREATE TABLE `ipdo` (
   `type_id` int(11) NOT NULL,
   `filename` varchar(125) COLLATE utf8mb4_unicode_ci NOT NULL,
   `filepath` varchar(125) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `year` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL
+  `year` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role_id` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `department` (

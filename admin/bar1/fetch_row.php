@@ -8,7 +8,7 @@
 
 	try{
 		$id = $_POST['id'];
-		$stmt = $db->prepare("SELECT * FROM members WHERE id = :id");
+		$stmt = $db->prepare("SELECT * FROM fileuploads WHERE id = :id");
 		$stmt->bindParam(':id', $id);
 		$stmt->execute();
 		$output['data'] = $stmt->fetch();

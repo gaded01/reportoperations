@@ -1,16 +1,17 @@
-<?php
-session_start();
-// Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: ../index.php");
-    exit;
-}
-?>
+
 
 <!doctype html>
 <html class="no-js" lang="">
 <?php include 'includes/header.php'?>
 <body>
+<?php
+session_start();
+// Check if the user is logged in, if not then redirect him to login page
+if(!$_SESSION["loggedin"]){
+    header("location: ../index.php");
+    exit;
+}
+?>
     <!-- Start Header Top Area -->
     <div class="header-top-area">
         <div class="container">

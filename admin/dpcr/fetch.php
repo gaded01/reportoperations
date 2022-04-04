@@ -3,22 +3,40 @@
 
 	$database = new Connection();
 	$db = $database->open();
+	$num = 1;
 
 	try{	
-	    $sql = 'SELECT * FROM members';
+	    $sql = "SELECT fileuploads.id, d.name dname, filepath, from_date, to_date, year, types.name AS tname 
+		FROM fileuploads 
+		LEFT JOIN department d ON fileuploads.department_id = d.id 
+		LEFT JOIN types ON fileuploads.type_id = types.id 
+		WHERE role_id = 'dpcr'";
+
 	    foreach ($db->query($sql) as $row) {
+			$filename = $row['filepath'];
 	    	?>
 	    	<tr>
-	    		<td><?php echo $row['id']; ?></td>
-	    		<td><?php echo $row['firstname']; ?></td>
-	    		<td><?php echo $row['lastname']; ?></td>
-	    		<td><?php echo $row['address']; ?></td>
+				<td><?php echo $num; ?></td>
+	    		<td><?php echo $row['dname']; ?></td>
+	    		<td><?php echo $row['from_date'] . " - " . $row['to_date']; ?></td>
+	    		<td><?php echo $row['year']; ?></td>
+				<td><?php echo $row['tname']; ?></td>
 	    		<td>
-	    			<button class="btn btn-success btn-sm edit" data-id="<?php echo $row['id']; ?>"><span class="glyphicon glyphicon-edit"></span> Edit</button>
-	    			<button class="btn btn-danger btn-sm delete" data-id="<?php echo $row['id']; ?>"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+					<style>
+						a { color: #ffffff;}
+					</style>
+	    			<button class="btn btn-success btn-sm edit" data-id="<?php echo $row['filepath']; ?>">
+						<a href="assets/dpcr/<?php echo $row['filepath']; ?>" target="_blank">
+							<span class="glyphicon glyphicon-edit"></span>
+							View
+						</a>
+					</button>
+	    			<button type="button" class="btn btn-danger btn-sm delete" data-id="<?php echo $row['id']; ?>" data-toggle="modal" data-target="#deletemodal"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+	    		</td>
 	    		</td>
 	    	</tr>
-	    	<?php 
+	    	<?php
+			$num++;
 	    }
 	}
 	catch(PDOException $e){
