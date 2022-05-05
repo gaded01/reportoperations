@@ -27,6 +27,7 @@ $(document).ready(function(){
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
                     console.log(response.message);
+					fetch();
 				}
 				else{
 					// $('#alert').show();
@@ -36,6 +37,7 @@ $(document).ready(function(){
 					$('.id').val("");
 					$('.name').val("");
 					$('.code').val("");
+					fetch();
 				}
 			}
 		});
@@ -72,6 +74,7 @@ $(document).ready(function(){
 			}
 		});
         $('.close').click();
+		fetch();
 	});
 	//
 

@@ -28,7 +28,7 @@
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
                         <li><a data-toggle="tab" href="#Home"><i class="fa fa-home"></i> Home</a>
                         </li>
-                        <li><a data-toggle="tab" href="#department"><i class="fa fa-building"></i> Department</a>
+                        <li><a data-toggle="tab" href="#office"><i class="fa fa-building"></i> Office</a>
                         </li>
                         <li><a data-toggle="tab" href="#event"><i class="fa fa-calendar"></i> Event</a>
                         </li>
@@ -50,11 +50,11 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="department" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        <div id="office" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="add-department.php">Add Department</a>
+                            <li><a href="add-office.php">Add Office</a>
                                 </li>
-                                <li><a href="manage-department.php">Manage Department</a>
+                                <li><a href="manage-office.php">Manage Offices</a>
                                 </li>
                             </ul>
                         </div>

@@ -24,7 +24,7 @@
 			if( $fileError === 0) 
 			{
 				$fileNameNew = uniqid('', true).".".$fileActualExt;
-				$fileDestination = '../assets/'.$fileNameNew;
+				$fileDestination = '../assets/opcr'.$fileNameNew;
 
 				if(move_uploaded_file($fileTmpName, $fileDestination))
 				{

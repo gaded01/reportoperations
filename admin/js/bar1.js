@@ -1,5 +1,96 @@
 $(document).ready(function(){
 	fetch();
+
+	$("[name='department']").prop("required", true);
+	$("[name='agency']").prop("required", true);
+	$("[name='op_unit']").prop("required", true);
+
+	$("#button1").click(function(){
+		var row_count = 1;
+		var department = document.getElementsByClassName('department')[0].value;
+		var agency = document.getElementsByClassName('agency')[0].value;
+		var quarter = document.getElementsByClassName('quarter')[0].value;
+		var op_unit = document.getElementsByClassName('op_unit')[0].value;
+
+		var unique_id=Math.floor(Date.now()/1000);
+
+		$.ajax({
+			method: 'POST',
+			url: 'department/add_title.php',
+			dataType: 'json',
+			data: { department: department,
+					agency: agency,
+					quarter: quarter,
+					op_unit: op_unit,
+					unique_id: unique_id,},
+			success: function(response){
+				if(response.error){
+					console.log(response.message);
+				}
+				else{
+					console.log(response.message);
+				}
+			}
+			
+		});
+
+		var tb = $('.mytable:eq(0) tbody');
+		var size = tb.find("tr").length;
+		// console.log("Number of rows : " + size);
+		tb.find("tr").each(function(index, element) {
+			var colSize = $(element).find('td').length;
+			// console.log("  Number of cols in row " + (index + 1) + " : " + colSize);
+			var td_values = [];
+			$(element).find('td').each(function(index, element) {
+				var colVal = $(element).text();
+				// console.log("    Value in col " + (index + 1) + " : " + colVal.trim());
+				td_values.push(colVal.trim());
+			});
+
+			console.log(td_values[1]);
+
+			$.ajax({
+				method: 'POST',
+				url: 'department/add.php',
+				dataType: 'json',
+				data: { department: department,
+						agency: agency,
+						quarter: quarter,
+						op_unit: op_unit,
+						row_title: td_values[0],
+						r1: td_values[1],
+						r2: td_values[2],
+						r3: td_values[3],
+						r4: td_values[4],
+						r5: td_values[5],
+						r6: td_values[6],
+						r7: td_values[7],
+						r8: td_values[8],
+						r9: td_values[9],
+						r10: td_values[10],
+						r11: td_values[11],
+						r12: td_values[12],
+						r13: td_values[13],
+						unique_id: unique_id,
+						row_count: row_count,},
+				success: function(response){
+					if(response.error){
+						console.log(response.message);
+					}
+					else{
+						console.log(response.message);
+					}
+				}
+
+			});
+			row_count = row_count + 1;
+			td_values = [];
+		});
+
+		
+	});
+
+
 	$('#addForm').submit(function(e){
         
 		e.preventDefault();
@@ -19,7 +110,7 @@ $(document).ready(function(){
         console.log(editform);
 		$.ajax({
 			method: 'POST',
-			url: 'campus/edit.php',
+			url: 'department/edit.php',
 			data: editform,
 			dataType: 'json',
 			success: function(response){
@@ -33,9 +124,6 @@ $(document).ready(function(){
 					// $('#alert_message').html(response.message);
                     console.log(response.message);
 					fetch();
-					$('.id').val("");
-					$('.name').val("");
-					$('.code').val("");
 				}
 			}
 		});
@@ -53,7 +141,7 @@ $(document).ready(function(){
 		var deleteform = $(this).serialize();
 		$.ajax({
 			method: 'POST',
-			url: 'bar1/delete.php',
+			url: 'department/delete.php',
 			data: deleteform,
 			dataType: 'json',
 			success: function(response){
@@ -66,10 +154,28 @@ $(document).ready(function(){
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
                     console.log(response.message);
-					fetch();
 				}
 			}
 		});
+		$.ajax({
+			method: 'POST',
+			url: 'department/delete_lines.php',
+			data: deleteform,
+			dataType: 'json',
+			success: function(response){
+				if(response.error){
+					// $('#alert').show();
+					// $('#alert_message').html(response.message);
+                    console.log(response.message);
+				}
+				else{
+					// $('#alert').show();
+					// $('#alert_message').html(response.message);
+                    console.log(response.message);
+				}
+			}
+		});
+		fetch();
         $('.close').click();
 	});
 	//
@@ -84,10 +190,9 @@ $(document).ready(function(){
 function fetch(){
 	$.ajax({
 		method: 'POST',
-		url: 'bar1/fetch.php',
+		url: 'department/fetch.php',
 		success: function(response){
 			$('#tbody').html(response);
-			console.log(response);
 		}
 	});
 }
@@ -95,7 +200,7 @@ function fetch(){
 function getDetails(id){
 	$.ajax({
 		method: 'POST',
-		url: 'bar1/fetch_row.php',
+		url: 'department/fetch_row.php',
 		data: {id:id},
 		dataType: 'json',
 		success: function(response){
@@ -106,15 +211,8 @@ function getDetails(id){
 				$('#alert_message').html(response.message);
 			}
 			else{
+				$('.unique_id').val(response.data.unique_id);
 				$('.id').val(response.data.id);
-				$('.name').val(response.data.name);
-				$('.code').val(response.data.code);
-				$('.status').val(response.data.status);
-				$('.filename').val(response.data.filepath);
-                console.log(response.data.id);
-                console.log(response.data.name);
-                console.log(response.data.code);
-                console.log(response.data.status);
 			}
 		}
 	});

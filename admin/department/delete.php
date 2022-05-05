@@ -6,10 +6,11 @@
 	$database = new Connection();
 	$db = $database->open();
 	try{
-		$sql = "DELETE FROM department WHERE id = '".$_POST['id']."'";
+		$sql = "DELETE FROM fileuploads WHERE id = '".$_POST['id']."'";
 		//if-else statement in executing our query
 		if($db->exec($sql)){
-			$output['message'] = 'Department deleted successfully';
+			$output['message'] = 'File deleted successfully';
+			unlink("../assets/department/".$_POST['filename']);
 		}
 		else{
 			$output['error'] = true;

@@ -6,14 +6,14 @@
 	$database = new Connection();
 	$db = $database->open();
 	try{
-		$sql = "DELETE FROM department WHERE id = '".$_POST['id']."'";
+		$sql = "DELETE FROM office WHERE id = '".$_POST['id']."'";
 		//if-else statement in executing our query
 		if($db->exec($sql)){
-			$output['message'] = 'DATA deleted successfully';
+			$output['message'] = 'Office deleted successfully';
 		}
 		else{
 			$output['error'] = true;
-			$output['message'] = 'Something went wrong. Cannot delete DATA';
+			$output['message'] = 'Something went wrong. Cannot delete office';
 		} 
 	}
 	catch(PDOException $e){

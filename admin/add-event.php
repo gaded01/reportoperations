@@ -36,15 +36,17 @@ session_start();
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
                         <li><a data-toggle="tab" href="#Home"><i class="fa fa-home"></i> Home</a>
                         </li>
-                        <li><a data-toggle="tab" href="#department"><i class="fa fa-building"></i> Department</a>
+                        <li><a data-toggle="tab" href="#office"><i class="fa fa-building"></i> Office</a>
                         </li>
                         <li class="active"><a data-toggle="tab" href="#event"><i class="fa fa-calendar"></i> Event</a>
                         </li>
                         <li><a data-toggle="tab" href="#campus"><i class="fa fa-users"></i> Campus</a>
                         </li>
-                        <li><a data-toggle="tab" href="#user"><i class="fa fa-graduation-cap"></i> Users</a>
-                        </li>
                         <?php
+                        if($_SESSION["role"] == "SUPER Admin")
+                        {
+                            echo '<li><a data-toggle="tab" href="#user"><i class="fa fa-graduation-cap"></i> Users</a></li>';
+                        }
                             if($_SESSION["role"] == "OPCR Admin" || $_SESSION["role"] == "SUPER Admin")
                             {
                                 echo '<li><a data-toggle="tab" href="#opcr"><i class="fa fa-user-plus"></i> OPCR </a></li>';
@@ -54,6 +56,9 @@ session_start();
                             }
                             if($_SESSION["role"] == "BAR1 Admin" || $_SESSION["role"] == "SUPER Admin"){
                                 echo '<li><a data-toggle="tab" href="#bar1"><i class="fa fa-user-plus"></i> BAR1 </a></li>';
+                            }
+                            if($_SESSION["role"] == "Department Admin" || $_SESSION["role"] == "SUPER Admin"){
+                                echo '<li><a data-toggle="tab" href="#department"><i class="fa fa-bar-chart"></i> Department</a>';
                             }
                         ?>
                         <li><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Settings</a>
@@ -68,11 +73,11 @@ session_start();
                                 </li>
                             </ul>
                         </div>
-                        <div id="department" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        <div id="office" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="add-department.php">Add Department</a>
+                            <li><a href="add-office.php">Add Office</a>
                                 </li>
-                                <li><a href="manage-department.php">Manage Department</a>
+                                <li><a href="manage-office.php">Manage Offices</a>
                                 </li>
                             </ul>
                         </div>
@@ -125,6 +130,14 @@ session_start();
                                 </li>
                             </ul>
                         </div>
+                        <div id="department" class="tab-pane notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="add-department-form.php">Add Form</a>
+                                </li>
+                                <li><a href="manage-department-form.php">Manage Forms</a>
+                                </li>
+                            </ul>
+                        </div>
                         <div id="report" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="add-types.php">Add Types</a>
@@ -154,6 +167,7 @@ session_start();
         <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-example-wrap mg-t-30">
+                        <form id="addForm" action="event/add.php" method="POST" enctype="multipart/form-data">
                         <div class="cmp-tb-hd cmp-int-hd">
                             <h2>Add Event</h2>
                         </div>
@@ -165,7 +179,7 @@ session_start();
                                     </div>
                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" placeholder="Event Name">
+                                            <input type="text" class="form-control input-sm" placeholder="Event Name" name="name">
                                         </div>
                                     </div>
                                 </div>
@@ -179,7 +193,7 @@ session_start();
                                     </div>
                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <textarea class="form-control input-sm" placeholder="Description"></textarea>
+                                            <textarea class="form-control input-sm" placeholder="Description" name="description"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -195,7 +209,7 @@ session_start();
                                 <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
                                     <div class="input-group date nk-int-st">
                                         <span class="input-group-addon"></span>
-                                        <input type="text" class="form-control" value="03/19/2018">
+                                        <input type="text" class="form-control" name="date">
                                     </div>
                                 </div>
                             </div>
@@ -210,7 +224,7 @@ session_start();
                                     </div>
                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <input type="file" class="form-control input-sm" placeholder="Event Name">
+                                            <input type="file" class="form-control input-sm" placeholder="Event Name" name="file">
                                         </div>
                                     </div>
                                 </div>
@@ -226,6 +240,7 @@ session_start();
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

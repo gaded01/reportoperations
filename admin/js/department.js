@@ -1,69 +1,45 @@
 $(document).ready(function(){
 	fetch();
-	$('#addform').submit(function(e){
+	$('#addForm').submit(function(e){
+        
 		e.preventDefault();
 		var addform = $(this).serialize();
-		//console.log(addform);
-		$.ajax({
-			method: 'POST',
-			url: 'department/add.php',
-			data: addform,
-			dataType: 'json',
-			success: function(response){
-				if(response.error){
-					// $('#alert').show();
-					// $('#alert_message').html(response.message);
-					console.log(response.message);
-					// $('.id').val("");
-					// $('.name').val("");
-					// $('.code').val("");
-				}
-				else{
-					// $('#alert').show();
-					// $('#alert_message').html(response.message);
-					// fetch();
-					console.log(response.message);
-					$('.id').val("");
-					$('.name').val("");
-					$('.code').val("");
-				}
-			}
-		});
+		console.log(addform);
 	});
 	//
 
 	//edit
 	$(document).on('click', '.edit', function(){
-		fetch();
 		var id = $(this).data('id');
 		getDetails(id);
 	});
 	$('#editform').submit(function(e){
 		e.preventDefault();
 		var editform = $(this).serialize();
-		console.log(editform);
+        console.log(editform);
 		$.ajax({
 			method: 'POST',
-			url: 'department/edit.php',
+			url: 'campus/edit.php',
 			data: editform,
 			dataType: 'json',
 			success: function(response){
-				fetch();
 				if(response.error){
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
-					console.log(response.message);
+                    console.log(response.message);
 				}
 				else{
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
-					
-					console.log(response.message);
+                    console.log(response.message);
+					fetch();
+					$('.id').val("");
+					$('.name').val("");
+					$('.code').val("");
 				}
 			}
 		});
-		$('.close').click();
-		fetch();
+        $('.close').click();
 	});
 	//
 
@@ -75,7 +51,6 @@ $(document).ready(function(){
 	$('#deleteform').submit(function(e){
 		e.preventDefault();
 		var deleteform = $(this).serialize();
-        console.log(editform);
 		$.ajax({
 			method: 'POST',
 			url: 'department/delete.php',
@@ -95,14 +70,15 @@ $(document).ready(function(){
 				}
 			}
 		});
+		location.reload();
         $('.close').click();
 	});
 	//
 
 	//hide message
-	$(document).on('click', '.close', function(){
-		$('#alert').hide();
-	});
+	// $(document).on('click', '.close', function(){
+	// 	$('#alert').hide();
+	// });
 
 });
 
@@ -112,6 +88,7 @@ function fetch(){
 		url: 'department/fetch.php',
 		success: function(response){
 			$('#tbody').html(response);
+			console.log(response);
 		}
 	});
 }
@@ -127,12 +104,18 @@ function getDetails(id){
 				// $('#edit').modal('hide');
 				// $('#delete').modal('hide');
 				// $('#alert').show();
-				// $('#alert_message').html(response.message);
+				$('#alert_message').html(response.message);
 			}
 			else{
 				$('.id').val(response.data.id);
 				$('.name').val(response.data.name);
 				$('.code').val(response.data.code);
+				$('.status').val(response.data.status);
+				$('.filename').val(response.data.filepath);
+                console.log(response.data.id);
+                console.log(response.data.name);
+                console.log(response.data.code);
+                console.log(response.data.status);
 			}
 		}
 	});

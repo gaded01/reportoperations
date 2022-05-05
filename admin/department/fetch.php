@@ -4,18 +4,38 @@
 	$database = new Connection();
 	$db = $database->open();
 	$num = 1;
+	session_start();
+	$role_id = $_SESSION["role"];
 
 	try{	
-	    $sql = 'SELECT * FROM department';
+	    $sql = "SELECT fileuploads.id, d.name dname, filepath, from_date, to_date, year, types.name AS tname 
+		FROM fileuploads 
+		LEFT JOIN office d ON fileuploads.office_id = d.id 
+		LEFT JOIN types ON fileuploads.type_id = types.id 
+		WHERE role_id = 'Department Admin'";
+		// WHERE fileuploads.role_id = ' . $role_id;
+
 	    foreach ($db->query($sql) as $row) {
+			$filename = $row['filepath'];
 	    	?>
 	    	<tr>
-			<td><?php echo $num; ?></td>
-	    		<td><?php echo $row['name']; ?></td>
-	    		<td><?php echo $row['code']; ?></td>
+				<td><?php echo $num; ?></td>
+	    		<td><?php echo $row['dname']; ?></td>
+	    		<td><?php echo $row['from_date'] . " - " . $row['to_date']; ?></td>
+	    		<td><?php echo $row['year']; ?></td>
+				<td><?php echo $row['tname']; ?></td>
 	    		<td>
-	    			<button type="button" class="btn btn-success btn-sm edit" data-id="<?php echo $row['id']; ?>" data-toggle="modal" data-target="#editmodal"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+					<style>
+						a { color: #ffffff;}
+					</style>
+	    			<button class="btn btn-success btn-sm edit" data-id="<?php echo $row['filepath']; ?>">
+						<a href="assets/department/<?php echo $row['filepath']; ?>" target="_blank">
+							<span class="glyphicon glyphicon-edit"></span>
+							View
+						</a>
+					</button>
 	    			<button type="button" class="btn btn-danger btn-sm delete" data-id="<?php echo $row['id']; ?>" data-toggle="modal" data-target="#deletemodal"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+	    		</td>
 	    		</td>
 	    	</tr>
 	    	<?php

@@ -1,0 +1,40 @@
+tr {
+    font-size: 12px;
+    padding: 2px, 3px;
+  }
+  
+  td:first-child { width: 20px ;}
+  
+  .content-table thead tr {
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .content-table thead tr th{
+    text-align: center;
+  }
+  
+  .content-table tbody tr td{
+    border: 0.5px solid;
+  }
+  td {
+    padding: 2px 3px;
+  }
+  
+  
+  .bold-rows td{
+      font-weight: bold;
+  }
+  
+  .report-title{
+      text-align: center;
+      margin: 0;
+  }
+  
+  td:first-child {width: 400px ;}
+  td:nth-child(2) {text-align: center;}
+  
+  .top-titles div{
+      display: inline-block;
+      min-width: 200px;
+  }

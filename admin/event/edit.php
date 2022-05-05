@@ -7,11 +7,12 @@
 	$db = $database->open();
 	try{
 		$id = $_POST['id'];
-		$firstname = $_POST['firstname'];
-		$lastname = $_POST['lastname'];
-		$address = $_POST['address'];
+		$name = $_POST['name'];
+		$description = $_POST['description'];
+		$date = $_POST['date'];
+		$filepath = $_POST['filepath'];
 
-		$sql = "UPDATE members SET firstname = '$firstname', lastname = '$lastname', address = '$address' WHERE id = '$id'";
+		$sql = "UPDATE members SET name = '$name', description = '$description', date = '$date', filepath = '$filepath' WHERE id = '$id'";
 		//if-else statement in executing our query
 		if($db->exec($sql)){
 			$output['message'] = 'Member updated successfully';

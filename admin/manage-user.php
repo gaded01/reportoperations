@@ -44,15 +44,17 @@
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
                         <li><a data-toggle="tab" href="#Home"><i class="fa fa-home"></i> Home</a>
                         </li>
-                        <li><a data-toggle="tab" href="#department"><i class="fa fa-building"></i> Department</a>
+                        <li><a data-toggle="tab" href="#office"><i class="fa fa-building"></i> Office</a>
                         </li>
                         <li><a data-toggle="tab" href="#event"><i class="fa fa-calendar"></i> Event</a>
                         </li>
                         <li><a data-toggle="tab" href="#campus"><i class="fa fa-users"></i> Campus</a>
                         </li>
-                        <li class="active"><a data-toggle="tab" href="#user"><i class="fa fa-graduation-cap"></i> Users</a>
-                        </li>
                         <?php
+                        if($_SESSION["role"] == "SUPER Admin")
+                        {
+                            echo '<li class="active"><a data-toggle="tab" href="#user"><i class="fa fa-graduation-cap"></i> Users</a></li>';
+                        }
                             if($_SESSION["role"] == "OPCR Admin" || $_SESSION["role"] == "SUPER Admin")
                             {
                                 echo '<li><a data-toggle="tab" href="#opcr"><i class="fa fa-user-plus"></i> OPCR </a></li>';
@@ -62,6 +64,9 @@
                             }
                             if($_SESSION["role"] == "BAR1 Admin" || $_SESSION["role"] == "SUPER Admin"){
                                 echo '<li><a data-toggle="tab" href="#bar1"><i class="fa fa-user-plus"></i> BAR1 </a></li>';
+                            }
+                            if($_SESSION["role"] == "Department Admin" || $_SESSION["role"] == "SUPER Admin"){
+                                echo '<li><a data-toggle="tab" href="#department"><i class="fa fa-bar-chart"></i> Department</a>';
                             }
                         ?>
                         <li><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Settings</a>
@@ -76,11 +81,11 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="department" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        <div id="office" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="add-department.php">Add Department</a>
+                            <li><a href="add-office.php">Add Office</a>
                                 </li>
-                                <li><a href="manage-department.php">Manage Department</a>
+                                <li><a href="manage-office.php">Manage Offices</a>
                                 </li>
                             </ul>
                         </div>
@@ -133,6 +138,14 @@
                                 </li>
                             </ul>
                         </div>
+                        <div id="department" class="tab-pane notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="add-department-form.php">Add Form</a>
+                                </li>
+                                <li><a href="manage-department-form.php">Manage Forms</a>
+                                </li>
+                            </ul>
+                        </div>
                         <div id="report" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                             <li><a href="add-types.php">Add Types</a>
@@ -164,6 +177,7 @@
                         <div class="basic-tb-hd">
                             <h2><i class="fa fa-user"></i> User Lists</h2>
                         </div>
+                        <input id="myInput" type="text" placeholder="Search..">
                         <div class="bsc-tbl-st">
                             <table class="table table-striped">
                                 <thead>
@@ -293,13 +307,13 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-2">
-                                            <label class="hrzn-fm">Department</label>
+                                            <label class="hrzn-fm">Office</label>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="nk-int-st">
-                                                <select name="department" id="from_select" class="form-control department">
+                                                <select name="office" id="from_select" class="form-control office">
                                                     <?php
-                                                    $sql = 'SELECT * FROM department';
+                                                    $sql = 'SELECT * FROM office';
                                                     foreach ($db->query($sql) as $row) {
                                                     ?>
                                                     <option value=" <?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
@@ -396,6 +410,7 @@
 <script src="../jquery.min.js"></script>
 <script src="../js/data-table/jquery.dataTables.min.js"></script>
 <script src="../js/data-table/data-table-act.js"></script>
+<script src="js/search.js"></script>
 
     <script src="js/user.js"></script>
 

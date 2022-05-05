@@ -10,7 +10,7 @@
 		//if-else statement in executing our query
 		if($db->exec($sql)){
 			$output['message'] = 'File deleted successfully';
-			unlink("../assets/".$_POST['filename']);
+			unlink("../assets/opcr/".$_POST['filename']);
 		}
 		else{
 			$output['error'] = true;

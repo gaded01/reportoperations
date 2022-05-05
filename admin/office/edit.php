@@ -6,24 +6,29 @@
 	$database = new Connection();
 	$db = $database->open();
 	try{
-		$sql = "DELETE FROM department WHERE id = '".$_POST['id']."'";
+		$id = $_POST['id'];
+		$name = $_POST['name'];
+		$code = $_POST['code'];
+
+		$sql = "UPDATE office SET name = '$name', code = '$code' WHERE id = '$id'";
 		//if-else statement in executing our query
 		if($db->exec($sql)){
-			$output['message'] = 'DATA deleted successfully';
-		}
+			$output['message'] = 'Office updated successfully';
+		} 
 		else{
 			$output['error'] = true;
-			$output['message'] = 'Something went wrong. Cannot delete DATA';
-		} 
+			$output['message'] = 'Something went wrong. Cannot update office';
+		}
+
 	}
 	catch(PDOException $e){
 		$output['error'] = true;
-		$output['message'] = $e->getMessage();;
+		$output['message'] = $e->getMessage();
 	}
 
 	//close connection
 	$database->close();
 
 	echo json_encode($output);
-
+	
 ?>

@@ -1,42 +1,31 @@
 $(document).ready(function(){
 	fetch();
-	//add
 	$('#addform').submit(function(e){
 		e.preventDefault();
 		var addform = $(this).serialize();
 		//console.log(addform);
 		$.ajax({
 			method: 'POST',
-			url: 'users/add.php',
+			url: 'office/add.php',
 			data: addform,
 			dataType: 'json',
 			success: function(response){
 				if(response.error){
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
-					console.log(response.message)
-					
+					console.log(response.message);
+					// $('.id').val("");
+					// $('.name').val("");
+					// $('.code').val("");
 				}
 				else{
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
 					// fetch();
-					console.log(response.message)
+					console.log(response.message);
 					$('.id').val("");
-					$('.id_no').val("");
-					$('.firstname').val("");
-					$('.lastname').val("");
-					$('.gender').val("");
-					$('.email').val("");
-					$('.contact').val("");
-					$('.username').val("");
-					$('.password').val("");
-					$('.campus').val("");
-					$('.office').val("");
-					$('.role').val("");
-					// $('.department_id').val(response.data.department_id);
-					$(".office option:selected").val("");
-					$(".role option:selected").val("");
+					$('.name').val("");
+					$('.code').val("");
 				}
 			}
 		});
@@ -45,6 +34,7 @@ $(document).ready(function(){
 
 	//edit
 	$(document).on('click', '.edit', function(){
+		fetch();
 		var id = $(this).data('id');
 		getDetails(id);
 	});
@@ -54,10 +44,11 @@ $(document).ready(function(){
 		console.log(editform);
 		$.ajax({
 			method: 'POST',
-			url: 'users/edit.php',
+			url: 'office/edit.php',
 			data: editform,
 			dataType: 'json',
 			success: function(response){
+				fetch();
 				if(response.error){
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
@@ -66,13 +57,13 @@ $(document).ready(function(){
 				else{
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
+					
 					console.log(response.message);
-					fetch();
 				}
 			}
 		});
-		fetch();
 		$('.close').click();
+		fetch();
 	});
 	//
 
@@ -84,9 +75,10 @@ $(document).ready(function(){
 	$('#deleteform').submit(function(e){
 		e.preventDefault();
 		var deleteform = $(this).serialize();
+        console.log(editform);
 		$.ajax({
 			method: 'POST',
-			url: 'users/delete.php',
+			url: 'office/delete.php',
 			data: deleteform,
 			dataType: 'json',
 			success: function(response){
@@ -103,7 +95,14 @@ $(document).ready(function(){
 				}
 			}
 		});
+		location.reload();
         $('.close').click();
+	});
+	//
+
+	//hide message
+	$(document).on('click', '.close', function(){
+		$('#alert').hide();
 	});
 
 });
@@ -111,7 +110,7 @@ $(document).ready(function(){
 function fetch(){
 	$.ajax({
 		method: 'POST',
-		url: 'users/fetch.php',
+		url: 'office/fetch.php',
 		success: function(response){
 			$('#tbody').html(response);
 		}
@@ -121,31 +120,20 @@ function fetch(){
 function getDetails(id){
 	$.ajax({
 		method: 'POST',
-		url: 'users/fetch_row.php',
+		url: 'office/fetch_row.php',
 		data: {id:id},
 		dataType: 'json',
 		success: function(response){
-			console.log(response);
 			if(response.error){
+				// $('#edit').modal('hide');
+				// $('#delete').modal('hide');
 				// $('#alert').show();
 				// $('#alert_message').html(response.message);
 			}
 			else{
 				$('.id').val(response.data.id);
-				$('.id_no').val(response.data.id_no);
-				$('.firstname').val(response.data.firstname);
-				$('.lastname').val(response.data.lastname);
-				$('.gender').val(response.data.gender);
-				$('.email').val(response.data.email);
-				$('.contact').val(response.data.contact);
-				$('.username').val(response.data.username);
-				$('.password').val(response.data.password);
-				$('.campus_id').val(response.data.campus_id);
-				$('.office').val(response.data.office_id);
-				$('.role').val(response.data.role_id);
-				// $('.department_id').val(response.data.department_id);
-				$(".office option:selected").val(response.data.office_id);
-				$(".role option:selected").val(response.data.role_id);
+				$('.name').val(response.data.name);
+				$('.code').val(response.data.code);
 			}
 		}
 	});

@@ -6,15 +6,15 @@
 	$database = new Connection();
 	$db = $database->open();
 	try{
-		$sql = "DELETE FROM department WHERE id = '".$_POST['id']."'";
+		$sql = "DELETE FROM department_lines WHERE unique_id = '".$_POST['unique_id']."'";
 		//if-else statement in executing our query
 		if($db->exec($sql)){
-			$output['message'] = 'DATA deleted successfully';
+			$output['message'] = 'Data deleted successfully';
 		}
 		else{
 			$output['error'] = true;
-			$output['message'] = 'Something went wrong. Cannot delete DATA';
-		} 
+			$output['message'] = 'Something went wrong. Cannot delete Data';
+		}
 	}
 	catch(PDOException $e){
 		$output['error'] = true;

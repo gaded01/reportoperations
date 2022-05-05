@@ -45,3 +45,30 @@ CREATE TABLE `types` (
   `id` int(11) NOT NULL,
   `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `types` (
+  `id` int(11) NOT NULL,
+  `name` varchar(155) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text(255),
+  `date` 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+CREATE TABLE `department` (
+  `id` int(11) NOT NULL,
+  `pt_q1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pt_q2` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pt_q3` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pt_q4` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pt_total` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pa_q1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pa_q2` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pa_q3` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pa_q4` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pa_total` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remarks` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `pa_total` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remarks` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `campus_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

@@ -73,7 +73,6 @@ $(document).ready(function(){
 	$('#deleteform').submit(function(e){
 		e.preventDefault();
 		var deleteform = $(this).serialize();
-        console.log(editform);
 		$.ajax({
 			method: 'POST',
 			url: 'campus/delete.php',
@@ -89,10 +88,10 @@ $(document).ready(function(){
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
                     console.log(response.message);
-					fetch();
 				}
 			}
 		});
+		location.reload();
         $('.close').click();
 	});
 	//

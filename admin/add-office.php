@@ -33,15 +33,17 @@ session_start();
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
                         <li><a data-toggle="tab" href="#Home"><i class="fa fa-home"></i> Home</a>
                         </li>
-                        <li class="active"><a data-toggle="tab" href="#department"><i class="fa fa-building"></i> Department</a>
+                        <li class="active"><a data-toggle="tab" href="#office"><i class="fa fa-building"></i> Office</a>
                         </li>
                         <li><a data-toggle="tab" href="#event"><i class="fa fa-calendar"></i> Event</a>
                         </li>
                         <li><a data-toggle="tab" href="#campus"><i class="fa fa-users"></i> Campus</a>
                         </li>
-                        <li><a data-toggle="tab" href="#user"><i class="fa fa-graduation-cap"></i> Users</a>
-                        </li>
                         <?php
+                        if($_SESSION["role"] == "SUPER Admin")
+                        {
+                            echo '<li><a data-toggle="tab" href="#user"><i class="fa fa-graduation-cap"></i> Users</a></li>';
+                        }
                             if($_SESSION["role"] == "OPCR Admin" || $_SESSION["role"] == "SUPER Admin")
                             {
                                 echo '<li><a data-toggle="tab" href="#opcr"><i class="fa fa-user-plus"></i> OPCR </a></li>';
@@ -51,6 +53,9 @@ session_start();
                             }
                             if($_SESSION["role"] == "BAR1 Admin" || $_SESSION["role"] == "SUPER Admin"){
                                 echo '<li><a data-toggle="tab" href="#bar1"><i class="fa fa-user-plus"></i> BAR1 </a></li>';
+                            }
+                            if($_SESSION["role"] == "Department Admin" || $_SESSION["role"] == "SUPER Admin"){
+                                echo '<li><a data-toggle="tab" href="#department"><i class="fa fa-bar-chart"></i> Department</a>';
                             }
                         ?>
                         <li><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Settings</a>
@@ -65,11 +70,11 @@ session_start();
                                 </li>
                             </ul>
                         </div>
-                        <div id="department" class="tab-pane active notika-tab-menu-bg animated flipInX">
+                        <div id="office" class="tab-pane active notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="add-department.php">Add Department</a>
+                            <li><a href="add-office.php">Add Office</a>
                                 </li>
-                                <li><a href="manage-department.php">Manage Department</a>
+                                <li><a href="manage-office.php">Manage Offices</a>
                                 </li>
                             </ul>
                         </div>
@@ -122,6 +127,14 @@ session_start();
                                 </li>
                             </ul>
                         </div>
+                        <div id="department" class="tab-pane notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="add-department-form.php">Add Form</a>
+                                </li>
+                                <li><a href="manage-department-form.php">Manage Forms</a>
+                                </li>
+                            </ul>
+                        </div>
                         <div id="report" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="add-types.php">Add Types</a>
@@ -160,11 +173,11 @@ session_start();
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
-                                        <label class="hrzn-fm">Department Code</label>
+                                        <label class="hrzn-fm">Office Code</label>
                                     </div>
                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm name" placeholder="ex. DPRMT-234-21" name="code">
+                                            <input type="text" class="form-control input-sm name" placeholder="ex. Off-234-21" name="code">
                                         </div>
                                     </div>
                                 </div>
@@ -174,7 +187,7 @@ session_start();
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
-                                        <label class="hrzn-fm">Department Name</label>
+                                        <label class="hrzn-fm">Office Name</label>
                                     </div>
                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
@@ -204,7 +217,7 @@ session_start();
    
 <?php include 'includes/footer.php'?>
 <script src="../jquery.min.js"></script>
-<script src="js/department.js"></script>
+<script src="js/office.js"></script>
 </body>
 
 </html>

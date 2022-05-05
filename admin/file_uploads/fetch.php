@@ -4,10 +4,11 @@
 	$database = new Connection();
 	$db = $database->open();
 	$num = 1;
+	session_start();
 
 	try{	
 	    $sql = "SELECT fileuploads.id, d.name dname, filepath, from_date, to_date, year, types.name AS tname 
-		FROM fileuploads LEFT JOIN department d ON fileuploads.department_id = d.id 
+		FROM fileuploads LEFT JOIN office d ON fileuploads.office_id = d.id 
 		LEFT JOIN types ON fileuploads.type_id = types.id 
 		WHERE role_id = 'opcr'";
 

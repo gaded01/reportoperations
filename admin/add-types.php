@@ -36,15 +36,17 @@ session_start();
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
                         <li><a data-toggle="tab" href="#Home"><i class="fa fa-home"></i> Home</a>
                         </li>
-                        <li><a data-toggle="tab" href="#department"><i class="fa fa-building"></i> Department</a>
+                        <li><a data-toggle="tab" href="#office"><i class="fa fa-building"></i> Office</a>
                         </li>
                         <li><a data-toggle="tab" href="#event"><i class="fa fa-calendar"></i> Event</a>
                         </li>
                         <li><a data-toggle="tab" href="#campus"><i class="fa fa-users"></i> Campus</a>
                         </li>
-                        <li><a data-toggle="tab" href="#user"><i class="fa fa-graduation-cap"></i> Users</a>
-                        </li>
                         <?php
+                        if($_SESSION["role"] == "SUPER Admin")
+                        {
+                            echo '<li><a data-toggle="tab" href="#user"><i class="fa fa-graduation-cap"></i> Users</a></li>';
+                        }
                             if($_SESSION["role"] == "OPCR Admin" || $_SESSION["role"] == "SUPER Admin")
                             {
                                 echo '<li><a data-toggle="tab" href="#opcr"><i class="fa fa-user-plus"></i> OPCR </a></li>';
@@ -54,6 +56,9 @@ session_start();
                             }
                             if($_SESSION["role"] == "BAR1 Admin" || $_SESSION["role"] == "SUPER Admin"){
                                 echo '<li><a data-toggle="tab" href="#bar1"><i class="fa fa-user-plus"></i> BAR1 </a></li>';
+                            }
+                            if($_SESSION["role"] == "Department Admin" || $_SESSION["role"] == "SUPER Admin"){
+                                echo '<li><a data-toggle="tab" href="#department"><i class="fa fa-bar-chart"></i> Department</a>';
                             }
                         ?>
                         <li class="active"><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Settings</a>
@@ -68,11 +73,11 @@ session_start();
                                 </li>
                             </ul>
                         </div>
-                        <div id="department" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        <div id="office" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="add-department.php">Add Department</a>
+                            <li><a href="add-office.php">Add Office</a>
                                 </li>
-                                <li><a href="manage-department.php">Manage Department</a>
+                                <li><a href="manage-office.php">Manage Offices</a>
                                 </li>
                             </ul>
                         </div>
@@ -122,6 +127,14 @@ session_start();
                                 <li><a href="add-bar1-form.php">Add Form</a>
                                 </li>
                                 <li><a href="manage-bar1-form.php">Manage Forms</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="department" class="tab-pane notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="add-department-form.php">Add Form</a>
+                                </li>
+                                <li><a href="manage-department-form.php">Manage Forms</a>
                                 </li>
                             </ul>
                         </div>
