@@ -31,14 +31,14 @@
 					//make use of prepared statement to prevent sql injection
 					$stmt = $db->prepare("INSERT INTO fileuploads (from_date, 
 																to_date, 
-																department_id, 
+																office_id, 
 																type_id, 
 																filename, 
 																filepath, 
 																year, 
-																role_id) VALUES (:from_date, :to_date, :department_id, :type_id, :filename, :filepath, :year, :role_id)");
+																role_id) VALUES (:from_date, :to_date, :office_id, :type_id, :filename, :filepath, :year, :role_id)");
 					//if-else statement in executing our prepared statement
-					if ($stmt->execute(array(':from_date' => $_POST['from_date'] , ':to_date' => $_POST['to_date'] , ':department_id' => $_POST['department_id'] , ':type_id' => $_POST['type_id'] , ':filename' => $_POST['filename'] , ':filepath' => $fileNameNew, ':year' => $_POST['year'], ':role_id' => $_POST['role_id'])) ){
+					if ($stmt->execute(array(':from_date' => $_POST['from_date'] , ':to_date' => $_POST['to_date'] , ':office_id' => $_POST['office_id'] , ':type_id' => $_POST['type_id'] , ':filename' => $_POST['filename'] , ':filepath' => $fileNameNew, ':year' => $_POST['year'], ':role_id' => $_POST['role_id'])) ){
 						$output['message'] = 'IPDO added successfully';
 						header("Location: ../add-dpcr-form.php");
 					}

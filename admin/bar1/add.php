@@ -7,7 +7,7 @@
 	$db = $database->open();
 	try{
 		//make use of prepared statement to prevent sql injection
-		$stmt = $db->prepare("INSERT INTO department_lines (row_title, uacs_code, pt_q1, pt_q2, pt_q3, pt_q4, pt_total, pa_q1, pa_q2, pa_q3, pa_q4, pa_total, variance, remarks, unique_id, row_count) 
+		$stmt = $db->prepare("INSERT INTO bar1_lines (row_title, uacs_code, pt_q1, pt_q2, pt_q3, pt_q4, pt_total, pa_q1, pa_q2, pa_q3, pa_q4, pa_total, variance, remarks, unique_id, row_count) 
 									VALUES (:row_title, :uacs_code, :pt_q1, :pt_q2, :pt_q3, :pt_q4, :pt_total, :pa_q1, :pa_q2, :pa_q3, :pa_q4, :pa_total, :variance, :remarks, :unique_id, :row_count)");
 		//if-else statement in executing our prepared statement
 		if ($stmt->execute(array(':row_count' => $_POST['row_count'],

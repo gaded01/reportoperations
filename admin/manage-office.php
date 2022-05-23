@@ -182,83 +182,81 @@ session_start();
             </div>
         </div>
     </div>
-
-
-
-
+    
+    
     <div class="modal fade" id="editmodal" role="dialog">
-                                    <div class="modal-dialog modals-default">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="modal-dialog modals-default">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <h2>Edit Campus</h2>
+                    <div class="form-example-wrap mg-t-30">
+                        <form id="editform">
+                            <input type="hidden" class="id" name="id">
+                            <div class="form-example-int form-horizental">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-* col-md-3 col-sm-3 col-xs-12">
+                                            <label class="hrzn-fm">Office Code:</label>
+                                        </div>
+                                        <div class="col-lg-* col-md-7 col-sm-7 col-xs-12">
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-sm code" placeholder="ex. CMPS 001" name="code">
                                             </div>
-                                            <div class="modal-body">
-                                                <h2>Edit Campus</h2>
-                                                <div class="form-example-wrap mg-t-30">
-                                                    <form id="editform">
-                                                    <input type="hidden" class="id" name="id">
-                                                        <div class="form-example-int form-horizental">
-                                                            <div class="form-group">
-                                                                <div class="row">
-                                                                    <div class="col-lg-* col-md-3 col-sm-3 col-xs-12">
-                                                                        <label class="hrzn-fm">Office Code:</label>
-                                                                    </div>
-                                                                    <div class="col-lg-* col-md-7 col-sm-7 col-xs-12">
-                                                                        <div class="nk-int-st">
-                                                                            <input type="text" class="form-control input-sm code" placeholder="ex. CMPS 001" name="code">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-example-int form-horizental mg-t-15">
-                                                            <div class="form-group">
-                                                                <div class="row">
-                                                                    <div class="col-lg-* col-md-3 col-sm-3 col-xs-12">
-                                                                        <label class="hrzn-fm">Office Name:</label>
-                                                                    </div>
-                                                                    <div class="col-lg-* col-md-7 col-sm-7 col-xs-12">
-                                                                        <div class="nk-int-st">
-                                                                            <input type="text" class="form-control input-sm name" placeholder="ex Can-avid" name="name">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            <div class="modal-footer">
-                                                <button type="submit" class="btn btn-default">Save changes</button>
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            </div>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>
-
-
-<!-- Delete -->
-<div class="modal fade" id="deletemodal" role="dialog">
-                                    <div class="modal-dialog modal-sm">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="form-example-int form-horizental mg-t-15">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-* col-md-3 col-sm-3 col-xs-12">
+                                            <label class="hrzn-fm">Office Name:</label>
+                                        </div>
+                                        <div class="col-lg-* col-md-7 col-sm-7 col-xs-12">
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-sm name" placeholder="ex Can-avid" name="name">
                                             </div>
-                                            <div class="modal-body">
-                                                <h5>Are you sure you want to delete this data?</h5>
-                                                <div class="form-example-wrap mg-t-50">
-                                                    <form id="deleteform">
-                                                    <input type="hidden" class="id" name="id">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="submit" class="btn btn-danger">Save changes</button>
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            </div>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-default">Save changes</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Delete -->
+    <div class="modal fade" id="deletemodal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <h5>Are you sure you want to delete this data?</h5>
+                    <div class="form-example-wrap mg-t-50">
+                        <form id="deleteform">
+                        <input type="hidden" class="id" name="id">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">Save changes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
 <?php include 'includes/footer.php'?>
 <!-- Data Table JS============================================ -->
 <script src="../jquery.min.js"></script>

@@ -161,7 +161,7 @@ session_start();
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="data-table-list">
                         <div class="basic-tb-hd">
-                            <h2><i class="fa fa-building"></i> Campus Lists</h2>
+                            <h2><i class="fa fa-building"></i> DPCR Upload Lists</h2>
                         </div>
                         <input id="myInput" type="text" placeholder="Search..">
                         <div class="bsc-tbl-st">

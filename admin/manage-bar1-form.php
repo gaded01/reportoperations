@@ -64,7 +64,7 @@
                                 echo '<li><a data-toggle="tab" href="#dpcr"><i class="fa fa-user-plus"></i> DPCR </a></li>';
                             }
                             if($_SESSION["role"] == "BAR1 Admin" || $_SESSION["role"] == "SUPER Admin"){
-                                echo '<li><a data-toggle="tab" href="#bar1"><i class="fa fa-user-plus"></i> BAR1 </a></li>';
+                                echo '<li class="active"><a data-toggle="tab" href="#bar1"><i class="fa fa-user-plus"></i> BAR1 </a></li>';
                             }
                             if($_SESSION["role"] == "Department Admin" || $_SESSION["role"] == "SUPER Admin"){
                                 echo '<li><a data-toggle="tab" href="#department"><i class="fa fa-bar-chart"></i> Department</a>';
@@ -131,7 +131,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="bar1" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        <div id="bar1" class="tab-pane active notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="add-bar1-form.php">Add Form</a>
                                 </li>
@@ -139,7 +139,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="department" class="tab-pane active notika-tab-menu-bg animated flipInX">
+                        <div id="department" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="add-department-form.php">Add Form</a>
                                 </li>
@@ -176,7 +176,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="data-table-list">
                         <div class="basic-tb-hd">
-                            <h2><i class="fa fa-building"></i> Campus Lists</h2>
+                            <h2><i class="fa fa-building"></i> Bar1 Upload Lists</h2>
                         </div>
                         <input id="myInput" type="text" placeholder="Search..">
                         <div class="bsc-tbl-st">
@@ -233,7 +233,7 @@
     <script src="../jquery.min.js"></script>
     <script src="../js/datapicker/bootstrap-datepicker.js"></script>
     <script src="../js/datapicker/datepicker-active.js"></script>
-    <script src="js/department.js"></script>
+    <script src="js/bar1.js"></script>
     <script src="js/search.js"></script>
 </body>
 

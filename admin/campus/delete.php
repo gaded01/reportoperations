@@ -13,7 +13,7 @@
 		}
 		else{
 			$output['error'] = true;
-			$output['message'] = 'Something went wrong. Cannot delete member';
+			$output['message'] = 'Something went wrong. Cannot delete campus';
 		} 
 	}
 	catch(PDOException $e){

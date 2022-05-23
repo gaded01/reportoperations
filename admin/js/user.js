@@ -15,17 +15,16 @@ $(document).ready(function(){
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
 					console.log(response.message)
+					alert(response.message);
+					location.reload();
 					
 				}
 				else{
-					// $('#alert').show();
-					// $('#alert_message').html(response.message);
-					// fetch();
-					console.log(response.message)
 					$('.id').val("");
 					$('.id_no').val("");
 					$('.firstname').val("");
 					$('.lastname').val("");
+					$('.middlename').val("");
 					$('.gender').val("");
 					$('.email').val("");
 					$('.contact').val("");
@@ -37,6 +36,7 @@ $(document).ready(function(){
 					// $('.department_id').val(response.data.department_id);
 					$(".office option:selected").val("");
 					$(".role option:selected").val("");
+					alert(response.message);
 				}
 			}
 		});
@@ -62,11 +62,14 @@ $(document).ready(function(){
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
 					console.log(response.message);
+					alert(response.message);
+					fetch();
 				}
 				else{
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
 					console.log(response.message);
+					alert(response.message);
 					fetch();
 				}
 			}
@@ -94,11 +97,13 @@ $(document).ready(function(){
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
                     console.log(response.message);
+					alert(response.message);
 				}
 				else{
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
                     console.log(response.message);
+					alert(response.message);
 					fetch();
 				}
 			}

@@ -6,7 +6,7 @@
 	$num = 1;
 
 	try{	
-	    $sql = "SELECT * FROM department";
+	    $sql = "SELECT * FROM bar1";
 
 	    foreach ($db->query($sql) as $row) {
 	    	?>
@@ -21,7 +21,7 @@
 						a { color: #ffffff;}
 					</style>
 	    			<button class="btn btn-success btn-sm edit">
-						<a href="department/view.php?id=<?php echo $row['id']; ?>" target="_blank">
+						<a href="bar1/view.php?id=<?php echo $row['id']; ?>" target="_blank">
 							<span class="glyphicon glyphicon-edit"></span>
 							View
 						</a>

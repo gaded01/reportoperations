@@ -167,7 +167,7 @@ session_start();
                     <div class="form-example-wrap mg-t-30">
                         <form id="addform">
                         <div class="cmp-tb-hd cmp-int-hd">
-                            <h2>Add Department</h2>
+                            <h2>Add Offices</h2>
                         </div>
                         <div class="form-example-int form-horizental">
                             <div class="form-group">

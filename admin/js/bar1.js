@@ -1,22 +1,21 @@
 $(document).ready(function(){
 	fetch();
 
-	$("[name='department']").prop("required", true);
-	$("[name='agency']").prop("required", true);
-	$("[name='op_unit']").prop("required", true);
-
 	$("#button1").click(function(){
+		console.log("Clicked");
 		var row_count = 1;
 		var department = document.getElementsByClassName('department')[0].value;
 		var agency = document.getElementsByClassName('agency')[0].value;
 		var quarter = document.getElementsByClassName('quarter')[0].value;
 		var op_unit = document.getElementsByClassName('op_unit')[0].value;
 
+		var messageAlert = "";
+
 		var unique_id=Math.floor(Date.now()/1000);
 
 		$.ajax({
 			method: 'POST',
-			url: 'department/add_title.php',
+			url: 'bar1/add_title.php',
 			dataType: 'json',
 			data: { department: department,
 					agency: agency,
@@ -26,9 +25,11 @@ $(document).ready(function(){
 			success: function(response){
 				if(response.error){
 					console.log(response.message);
+					messageAlert = response.message;
 				}
 				else{
 					console.log(response.message);
+					messageAlert = response.message;
 				}
 			}
 			
@@ -51,7 +52,7 @@ $(document).ready(function(){
 
 			$.ajax({
 				method: 'POST',
-				url: 'department/add.php',
+				url: 'bar1/add.php',
 				dataType: 'json',
 				data: { department: department,
 						agency: agency,
@@ -87,6 +88,10 @@ $(document).ready(function(){
 			td_values = [];
 		});
 
+		$( document ).ajaxStop(function(){
+			alert(messageAlert);
+			location.reload();
+		});
 		
 	});
 
@@ -110,7 +115,7 @@ $(document).ready(function(){
         console.log(editform);
 		$.ajax({
 			method: 'POST',
-			url: 'department/edit.php',
+			url: 'bar1/edit.php',
 			data: editform,
 			dataType: 'json',
 			success: function(response){
@@ -141,7 +146,7 @@ $(document).ready(function(){
 		var deleteform = $(this).serialize();
 		$.ajax({
 			method: 'POST',
-			url: 'department/delete.php',
+			url: 'bar1/delete.php',
 			data: deleteform,
 			dataType: 'json',
 			success: function(response){
@@ -159,7 +164,7 @@ $(document).ready(function(){
 		});
 		$.ajax({
 			method: 'POST',
-			url: 'department/delete_lines.php',
+			url: 'bar1/delete_lines.php',
 			data: deleteform,
 			dataType: 'json',
 			success: function(response){
@@ -167,15 +172,18 @@ $(document).ready(function(){
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
                     console.log(response.message);
+					alert(response.message);
 				}
 				else{
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
                     console.log(response.message);
+					alert(response.message);
+					fetch();
 				}
 			}
 		});
-		fetch();
+		
         $('.close').click();
 	});
 	//
@@ -190,7 +198,7 @@ $(document).ready(function(){
 function fetch(){
 	$.ajax({
 		method: 'POST',
-		url: 'department/fetch.php',
+		url: 'bar1/fetch.php',
 		success: function(response){
 			$('#tbody').html(response);
 		}
@@ -200,7 +208,7 @@ function fetch(){
 function getDetails(id){
 	$.ajax({
 		method: 'POST',
-		url: 'department/fetch_row.php',
+		url: 'bar1/fetch_row.php',
 		data: {id:id},
 		dataType: 'json',
 		success: function(response){

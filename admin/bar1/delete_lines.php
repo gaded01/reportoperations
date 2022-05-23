@@ -6,7 +6,7 @@
 	$database = new Connection();
 	$db = $database->open();
 	try{
-		$sql = "DELETE FROM department_lines WHERE unique_id = '".$_POST['unique_id']."'";
+		$sql = "DELETE FROM bar1_lines WHERE unique_id = '".$_POST['unique_id']."'";
 		//if-else statement in executing our query
 		if($db->exec($sql)){
 			$output['message'] = 'Data deleted successfully';

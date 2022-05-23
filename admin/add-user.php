@@ -37,7 +37,7 @@
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
                         <li><a data-toggle="tab" href="#Home"><i class="fa fa-home"></i> Home</a>
                         </li>
-                        <li><a data-toggle="tab" href="#department"><i class="fa fa-building"></i> Department</a>
+                        <li><a data-toggle="tab" href="#office"><i class="fa fa-building"></i> Office</a>
                         </li>
                         <li><a data-toggle="tab" href="#event"><i class="fa fa-calendar"></i> Event</a>
                         </li>
@@ -74,11 +74,11 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="department" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        <div id="office" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="add-department.php">Add Department</a>
+                                <li><a href="add-office.php">Add Office</a>
                                 </li>
-                                <li><a href="manage-department.php">Manage Department</a>
+                                <li><a href="manage-office.php">Manage Office</a>
                                 </li>
                             </ul>
                         </div>
@@ -173,7 +173,7 @@
                                     </div>
                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" placeholder="ex. user-234-21" name="id_no">
+                                            <input type="text" class="form-control input-sm id_no" placeholder="ex. user-234-21" name="id_no">
                                         </div>
                                     </div>
                                 </div>
@@ -187,7 +187,7 @@
                                     </div>
                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" placeholder="First Name" name="firstname">
+                                            <input type="text" class="form-control input-sm firstname" placeholder="First Name" name="firstname">
                                         </div>
                                     </div>
                                 </div>
@@ -201,7 +201,7 @@
                                     </div>
                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" placeholder="Last Name" name="lastname">
+                                            <input type="text" class="form-control input-sm lastname" placeholder="Last Name" name="lastname">
                                         </div>
                                     </div>
                                 </div>
@@ -215,7 +215,7 @@
                                     </div>
                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" placeholder="Middle Name" name="middlename">
+                                            <input type="text" class="form-control input-sm middlename" placeholder="Middle Name" name="middlename">
                                         </div>
                                     </div>
                                 </div>
@@ -229,7 +229,7 @@
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="nk-int-st">
-                                            <select class="form-control input-sm" data-live-search="true" name="gender">
+                                            <select class="form-control input-sm gender" data-live-search="true" name="gender">
                                                 <option value="Male">Male</option>
                                                 <option value="Female">Female</option>
                                             </select>
@@ -268,6 +268,7 @@
                                                 <option value="OPCR Admin">OPCR Admin</option>
                                                 <option value="DPCR Admin">DPCR Admin</option>
                                                 <option value="BAR1 Admin">BAR1 Admin</option>
+                                                <option value="Department Admin">Department Admin</option>
                                             </select>
                                         </div>
                                     </div>
@@ -300,7 +301,7 @@
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" name="contact">
+                                            <input type="text" class="form-control input-sm contact" name="contact">
                                         </div>
                                     </div>
                                 <div class="row">
@@ -309,7 +310,7 @@
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" name="email">
+                                            <input type="text" class="form-control input-sm email" name="email">
                                         </div>
                                     </div>
                                 </div>
@@ -323,7 +324,7 @@
                                     </div>
                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" name="username">
+                                            <input type="text" class="form-control input-sm username" name="username">
                                         </div>
                                     </div>
                                 </div>
@@ -337,7 +338,7 @@
                                     </div>
                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <input type="password" class="form-control input-sm" name="password">
+                                            <input type="password" class="form-control input-sm password" name="password">
                                         </div>
                                     </div>
                                 </div>

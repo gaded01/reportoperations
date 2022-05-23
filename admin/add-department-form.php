@@ -45,8 +45,7 @@
                         </li>
                         <li><a data-toggle="tab" href="#office"><i class="fa fa-building"></i> Office</a>
                         </li>
-                        <li><a data-toggle="tab" href="#event"><i class="fa fa-calendar"></i> Event</a>
-                        </li>
+                         
                         <li><a data-toggle="tab" href="#campus"><i class="fa fa-users"></i> Campus</a>
                         </li>
                         <?php
@@ -178,7 +177,7 @@
                             <h2>Add Form</h2>
                         </div>
                         <form id="addForm" action="department/add.php" method="POST" enctype="multipart/form-data">
-                        <input type="hidden" name="role_id" value="bar1">
+                        <input type="hidden" name="role_id" value="Department Admin">
                         <div class="form-example-int form-horizental mg-t-15">
                             <div class="form-group">
                                 <div class="row">
@@ -263,11 +262,11 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
-                                        <label class="hrzn-fm">Department</label>
+                                        <label class="hrzn-fm">Office</label>
                                     </div>
                                     <div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <select name="department_id" id="from_select" class="form-control">
+                                            <select name="office_id" id="from_select" class="form-control">
                                             <?php
                                                 $sql = 'SELECT * FROM office';
                                                 foreach ($db->query($sql) as $row) {

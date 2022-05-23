@@ -188,7 +188,7 @@ td:first-child { width: 400px ;}
                                 </li>
                             </ul>
                         </div>
-                        <div id="bar1" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        <div id="bar1" class="tab-pane active notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="add-bar1-form.php">Add Form</a>
                                 </li>
@@ -196,7 +196,7 @@ td:first-child { width: 400px ;}
                                 </li>
                             </ul>
                         </div>
-                        <div id="bar1" class="tab-pane active notika-tab-menu-bg animated flipInX">
+                        <div id="department" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="add-department-form.php">Add Form</a>
                                 </li>
@@ -827,7 +827,7 @@ td:first-child { width: 400px ;}
     <script src="../jquery.min.js"></script>
     <script src="../js/datapicker/bootstrap-datepicker.js"></script>
     <script src="../js/datapicker/datepicker-active.js"></script>
-    <script src="js/department.js"></script>
+    <script src="js/bar1.js"></script>
 </body>
 
 </html>

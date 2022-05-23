@@ -51,7 +51,7 @@
 	<div>
 		<?php
 		try{
-			$sql = 'SELECT * FROM department WHERE id = '. $id;
+			$sql = 'SELECT * FROM bar1 WHERE id = '. $id;
 			foreach ($db->query($sql) as $row) { ?>
 
 		<div  class="top-titles">
@@ -126,7 +126,7 @@
 			
 			<?php
 			try{
-				$sql = 'SELECT * FROM department LEFT JOIN department_lines on department.unique_id = department_lines.unique_id WHERE department.id = '. $id . ' ORDER BY department_lines.row_count' ;
+				$sql = 'SELECT * FROM bar1 LEFT JOIN bar1_lines on bar1.unique_id = bar1_lines.unique_id WHERE bar1.id = '. $id . ' ORDER BY bar1_lines.row_count' ;
 				foreach ($db->query($sql) as $row) { ?>
 				<tr>
 					<td class="row-title"><?php echo $row['row_title']; ?></td>

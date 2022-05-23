@@ -52,10 +52,10 @@
                         <li><a data-toggle="tab" href="#campus"><i class="fa fa-users"></i> Campus</a>
                         </li>
                         <?php
-                        if($_SESSION["role"] == "SUPER Admin")
-                        {
-                            echo '<li><a data-toggle="tab" href="#user"><i class="fa fa-graduation-cap"></i> Users</a></li>';
-                        }
+                            if($_SESSION["role"] == "SUPER Admin")
+                            {
+                                echo '<li><a data-toggle="tab" href="#user"><i class="fa fa-graduation-cap"></i> Users</a></li>';
+                            }
                             if($_SESSION["role"] == "OPCR Admin" || $_SESSION["role"] == "SUPER Admin")
                             {
                                 echo '<li><a data-toggle="tab" href="#opcr"><i class="fa fa-user-plus"></i> OPCR </a></li>';
@@ -176,7 +176,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="data-table-list">
                         <div class="basic-tb-hd">
-                            <h2><i class="fa fa-building"></i> Campus Lists</h2>
+                            <h2><i class="fa fa-building"></i> Department Upload Lists</h2>
                         </div>
                         <input id="myInput" type="text" placeholder="Search..">
                         <div class="bsc-tbl-st">

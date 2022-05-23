@@ -35,9 +35,9 @@ session_start();
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
                         <li><a data-toggle="tab" href="#Home"><i class="fa fa-home"></i> Home</a>
                         </li>
-                        <li><a data-toggle="tab" href="#department"><i class="fa fa-building"></i> Department</a>
-                        </li>
                         <li><a data-toggle="tab" href="#office"><i class="fa fa-building"></i> Office</a>
+                        </li>
+                        <li><a data-toggle="tab" href="#event"><i class="fa fa-calendar"></i> Event</a>
                         </li>
                         <li class="active"><a data-toggle="tab" href="#campus"><i class="fa fa-users"></i> Campus</a>
                         </li>
@@ -163,8 +163,7 @@ session_start();
     <!-- Form Element area Start-->
     <div class="form-element-area">
         <div class="container">
-            
-        <div class="row">
+            <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-example-wrap mg-t-30">
                         <form id="addForm">

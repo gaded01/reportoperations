@@ -15,12 +15,13 @@ $(document).ready(function(){
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
                     console.log(response.message);
+					alert(response.message);
 				}
 				else{
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
                     console.log(response.message);
-					fetch();
+					alert(response.message);
 					$('.id').val("");
 					$('.name').val("");
 				}
@@ -48,11 +49,13 @@ $(document).ready(function(){
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
                     console.log(response.message);
+					alert(response.message);
 				}
 				else{
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
                     console.log(response.message);
+					alert(response.message);
 					fetch();
 					$('.id').val("");
 					$('.name').val("");

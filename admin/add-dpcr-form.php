@@ -258,11 +258,11 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
-                                        <label class="hrzn-fm">Department</label>
+                                        <label class="hrzn-fm">Office</label>
                                     </div>
                                     <div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <select name="department_id" id="from_select" class="form-control">
+                                            <select name="office_id" id="from_select" class="form-control">
                                             <?php
                                                 $sql = 'SELECT * FROM department';
                                                 foreach ($db->query($sql) as $row) {

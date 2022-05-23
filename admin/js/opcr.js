@@ -63,12 +63,14 @@ $(document).ready(function(){
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
                     console.log(response.message);
+					alert(response.message);
 					fetch();
 				}
 				else{
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
                     console.log(response.message);
+					alert(response.message);
 					fetch();
 				}
 			}

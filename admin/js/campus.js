@@ -12,15 +12,11 @@ $(document).ready(function(){
 			dataType: 'json',
 			success: function(response){
 				if(response.error){
-					// $('#alert').show();
-					// $('#alert_message').html(response.message);
-                    console.log(response.message);
+					alert(response.message);
 				}
 				else{
-					// $('#alert').show();
-					// $('#alert_message').html(response.message);
-                    console.log(response.message);
-					fetch();
+					console.log(response.message);
+					alert(response.message);
 					$('.id').val("");
 					$('.name').val("");
 					$('.code').val("");
@@ -49,11 +45,13 @@ $(document).ready(function(){
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
                     console.log(response.message);
+					alert(response.message);
 				}
 				else{
 					// $('#alert').show();
 					// $('#alert_message').html(response.message);
                     console.log(response.message);
+					alert(response.message);
 					fetch();
 					$('.id').val("");
 					$('.name').val("");
@@ -80,27 +78,19 @@ $(document).ready(function(){
 			dataType: 'json',
 			success: function(response){
 				if(response.error){
-					// $('#alert').show();
-					// $('#alert_message').html(response.message);
                     console.log(response.message);
+					alert(response.message);
 				}
 				else{
-					// $('#alert').show();
-					// $('#alert_message').html(response.message);
                     console.log(response.message);
+					alert(response.message);
+					location.reload();
 				}
 			}
 		});
-		location.reload();
         $('.close').click();
+		
 	});
-	//
-
-	//hide message
-	// $(document).on('click', '.close', function(){
-	// 	$('#alert').hide();
-	// });
-
 });
 
 function fetch(){
