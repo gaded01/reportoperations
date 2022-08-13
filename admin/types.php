@@ -25,89 +25,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
-                        <li><a data-toggle="tab" href="#Home"><i class="fa fa-home"></i> Home</a>
-                        </li>
-                        <li><a data-toggle="tab" href="#office"><i class="fa fa-building"></i> Office</a>
-                        </li>
-                        <li><a data-toggle="tab" href="#event"><i class="fa fa-calendar"></i> Event</a>
-                        </li>
-                        <li><a data-toggle="tab" href="#campus"><i class="fa fa-users"></i> Campus</a>
-                        </li>
-                        <li><a data-toggle="tab" href="#user"><i class="fa fa-graduation-cap"></i> Users</a>
-                        </li>
-                        <li><a data-toggle="tab" href="#ipdo"><i class="fa fa-user-plus"></i> IPDO </a>
-                        </li>
-                        <li class="active"><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Reports</a>
-                        </li>
-                        <li><a data-toggle="tab" href="#account"><i class="fa fa-user-secret"></i> Account</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content custom-menu-content">
-                        <div id="Home" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="index.php">Dashboard</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="office" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                            <li><a href="add-office.php">Add Office</a>
-                                </li>
-                                <li><a href="manage-office.php">Manage Offices</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="event" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="add-event.php">Add Event</a>
-                                </li>
-                                <li><a href="manage-event.php">Manage Event</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="campus" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="add-campus.php">Add Campus</a>
-                                </li>
-                                <li><a href="manage-campus.php">Manage Campus</a>
-                                </li>
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="user" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="add-user.php">Add User</a>
-                                </li>
-                                <li><a href="manage-user.php">Manage User</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="ipdo" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="add-ipdo.php">Add IPDO</a>
-                                </li>
-                                <li><a href="manage-ipdo.php">Manage IPDO</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="report" class="tab-pane in active notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="add-types.php">Add Types</a>
-                                </li>
-                                <li><a href="manage-types.php">Manage Types</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="account" class="tab-pane notika-tab-menu-bg animated flipInX">
-                        <ul class="notika-main-menu-dropdown">
-                                <li><a href="profile.php">Profile</a>
-                                </li>
-                                <li><a href="../">Logout</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    <?php include 'layouts/navbar.php'?>
                 </div>
             </div>
         </div>
@@ -193,6 +111,10 @@
          });
 
       });
+      $(document).ready(function() {
+        document.querySelector('.types').classList.add('active');
+        document.querySelector('#types').classList.add('active');
+    })
    </script>
 </body>
 

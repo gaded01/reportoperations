@@ -1,7 +1,7 @@
 $(document).ready(function(){
+	
 	fetch();
 	$('#addForm').submit(function(e){
-        
 		e.preventDefault();
 		var addform = $(this).serialize();
 		console.log(addform);

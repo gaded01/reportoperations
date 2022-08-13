@@ -45,6 +45,7 @@
 </head>
 <body>
 	<div id="invoice">
+	<a href="#"><img src="../../img/logo/logo-black.png" alt="" style="width: 180px;"/></a>
 	<div class="report-title">
 		<span>Quarterly Physical Report of Operations</span>
 	</div>

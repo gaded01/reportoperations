@@ -1,6 +1,5 @@
 $(document).ready(function(){
 	fetch();
-
 	$("#button1").click(function(){
 		console.log("Clicked");
 		var row_count = 1;

@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	
+
 	fetch();
 	$('#addForm').submit(function(e){
         
