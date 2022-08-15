@@ -1,16 +1,17 @@
 $(document).ready(function(){
-	
-
 	fetch();
+	fetchHighestId();
 	$('#addForm').submit(function(e){
-        
 		e.preventDefault();
-		var addform = $(this).serialize();
+		let name = document.querySelector('#campus_name').value;
 		//console.log(addform);
 		$.ajax({
 			method: 'POST',
 			url: 'campus/add.php',
-			data: addform,
+			data: {
+				'code' : '',
+				'name' : name,
+			},
 			dataType: 'json',
 			success: function(response){
 				if(response.error){
@@ -27,7 +28,6 @@ $(document).ready(function(){
 		});
 	});
 	//
-
 	//edit
 	$(document).on('click', '.edit', function(){
 		var id = $(this).data('id');
@@ -64,7 +64,6 @@ $(document).ready(function(){
         $('.close').click();
 	});
 	//
-
 	//delete
 	$(document).on('click', '.delete', function(){
 		var id = $(this).data('id');
@@ -101,10 +100,19 @@ function fetch(){
 		url: 'campus/fetch.php',
 		success: function(response){
 			$('#tbody').html(response);
+			// console.log('response', response);
 		}
 	});
 }
-
+function fetchHighestId() {
+	$.ajax({
+		method: 'POST',
+		url: 'campus/fetch_user.php',
+		success: function(response){
+			console.log('responsesss', response);
+		}
+	});
+}
 function getDetails(id){
 	$.ajax({
 		method: 'POST',
@@ -131,3 +139,7 @@ function getDetails(id){
 		}
 	});
 }
+function autoGenerate() {
+	
+}
+

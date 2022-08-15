@@ -4,7 +4,7 @@
 	$database = new Connection();
 	$db = $database->open();
 	$num = 1;
-
+	
 	try{	
 	    $sql = 'SELECT * FROM campus';
 	    foreach ($db->query($sql) as $row) {

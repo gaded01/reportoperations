@@ -57,7 +57,7 @@ session_start();
                                     </div>
                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm code" placeholder="ex. CMPS 001" name="code">
+                                            <input type="text" class="form-control input-sm code" placeholder="ex. CMPS 001" id="campus_id" name="code">
                                         </div>
                                     </div>
                                 </div>
@@ -71,7 +71,7 @@ session_start();
                                     </div>
                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm name" placeholder="ex Can-avid" name="name">
+                                            <input type="text" class="form-control input-sm name" placeholder="ex Can-avid" id="campus_name" name="name">
                                         </div>
                                     </div>
                                 </div>
@@ -93,11 +93,7 @@ session_start();
         </div>
     </div>
     <!-- Form Element area End-->
-    
     <!-- Edit modal -->
-    
-
-   <!-- Edit modal -->
 <?php include 'includes/footer.php'?>
     <!-- datapicker JS
 		============================================ -->

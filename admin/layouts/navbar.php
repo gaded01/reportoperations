@@ -75,8 +75,10 @@
         <ul class="notika-main-menu-dropdown">
             <li><a href="add-opcr-form.php">Add Form</a>
             </li>
-
-            <li><a href="manage-opcr-form.php">Manage Forms</a>
+            <?php
+            if ($_SESSION["role"] == "BAR1-OPCR Admin" || $_SESSION["role"] == "SUPER Admin")
+             echo '<li><a href="manage-opcr-form.php">Manage Forms</a>';
+            ?>
             </li>
         </ul>
     </div>
@@ -99,14 +101,14 @@
             </li>
         </ul>
     </div>
-    <div id="department" class="tab-pane notika-tab-menu-bg animated flipInX">
+    <!-- <div id="department" class="tab-pane notika-tab-menu-bg animated flipInX">
         <ul class="notika-main-menu-dropdown">
             <li><a href="add-department-form.php">Add Form</a>
             </li>
             <li><a href="manage-department-form.php">Manage Forms</a>
             </li>
         </ul>
-    </div>
+    </div> -->
     <div id="report" class="tab-pane notika-tab-menu-bg animated flipInX">
         <ul class="notika-main-menu-dropdown">
             <li><a href="add-types.php">Add Types</a>
