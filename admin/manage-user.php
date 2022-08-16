@@ -61,7 +61,7 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th>ID #</th>
                                         <th>firstname</th>
                                         <th>lastname</th>
                                         <th>middlename</th>

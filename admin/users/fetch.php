@@ -10,7 +10,7 @@
 	    foreach ($db->query($sql) as $row) {
 	    	?>
 	    	<tr>
-				<td><?php echo $num; ?></td>
+				<td><?php echo $row['id_no']; ?></td>
 	    		<td><?php echo $row['firstname']; ?></td>
 	    		<td><?php echo $row['lastname']; ?></td>
 	    		<td><?php echo $row['middlename']; ?></td>

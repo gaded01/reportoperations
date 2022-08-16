@@ -5,6 +5,8 @@
 
 	$database = new Connection();
 	$db = $database->open();
+	$id = $db->query('SELECT count(*) FROM fileuploads')->fetch();
+	$id_no = 'OPCR' ."-". str_pad($id['count(*)'] + 1, 3, 0, STR_PAD_LEFT) ."-". date("y");
 	try{
 		$file = $_FILES['file'];
 
@@ -17,7 +19,9 @@
 		$fileExt = explode('.', $fileName);
 		$fileActualExt = strtolower(end($fileExt));
 
-		$allowed = array('pdf');
+		$allowed = array('pdf','docx','xlsx');
+
+
 
 		if(in_array($fileActualExt, $allowed))
 		{
@@ -29,9 +33,9 @@
 				if(move_uploaded_file($fileTmpName, $fileDestination))
 				{
 					//make use of prepared statement to prevent sql injection
-					$stmt = $db->prepare("INSERT INTO fileuploads (from_date, to_date, office_id, type_id, filename, filepath, year, role_id) VALUES (:from_date, :to_date, :office_id, :type_id, :filename, :filepath, :year, :role_id)");
+					$stmt = $db->prepare("INSERT INTO fileuploads (id_no, from_date, to_date, office_id, type_id, filename, filepath, year, role_id) VALUES (:id_no, :from_date, :to_date, :office_id, :type_id, :filename, :filepath, :year, :role_id)");
 					//if-else statement in executing our prepared statement
-					if ($stmt->execute(array(':from_date' => $_POST['from_date'] , ':to_date' => $_POST['to_date'] , ':office_id' => $_POST['office_id'] , ':type_id' => $_POST['type_id'] , ':filename' => $_POST['filename'] , ':filepath' => $fileNameNew, ':year' => $_POST['year'], ':role_id' => $_POST['role_id'])) ){
+					if ($stmt->execute(array(':id_no' => $id_no, ':from_date' => $_POST['from_date'] , ':to_date' => $_POST['to_date'] , ':office_id' => $_POST['office_id'] , ':type_id' => $_POST['type_id'] , ':filename' => $_POST['filename'] , ':filepath' => $fileNameNew, ':year' => $_POST['year'], ':role_id' => $_POST['role_id'])) ){
 						$output['message'] = 'IPDO added successfully';
 						header("Location: ../add-opcr-form.php");
 					}

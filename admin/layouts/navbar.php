@@ -26,6 +26,7 @@
     //     echo '<li><a data-toggle="tab" href="#department"><i class="fa fa-bar-chart"></i> Department</a>';
     // }
     ?>
+    <li class="accomplishment"><a data-toggle="tab" href="#accomplishment"><i class="fa fa-user-plus"></i> Accomplishment </a></li>
     <li class="report"><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Settings</a>
     </li>
     <li class="account"><a data-toggle="tab" href="#account"><i class="fa fa-user-secret"></i> Account</a>
@@ -97,6 +98,17 @@
             <?php
             if ($_SESSION["role"] == "BAR1-OPCR Admin" || $_SESSION["role"] == "SUPER Admin")
                 echo '<li><a href="manage-bar1-form.php">Manage Forms</a>'
+            ?>
+            </li>
+        </ul>
+    </div>
+    <div id="accomplishment" class="tab-pane notika-tab-menu-bg animated flipInX">
+        <ul class="notika-main-menu-dropdown">
+            <li><a href="add-bar1-form.php">Add Accomplishment</a>
+            </li>
+            <?php
+            if ($_SESSION["role"] == "BAR1-OPCR Admin" || $_SESSION["role"] == "SUPER Admin")
+                echo '<li><a href="manage-bar1-form.php">Manage Accomplishment</a>'
             ?>
             </li>
         </ul>

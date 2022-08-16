@@ -27,7 +27,7 @@
 					</style>
 	    			<button class="btn btn-success btn-sm edit" data-id="<?php echo $row['filepath']; ?>">
 						<a href="assets/opcr/<?php echo $row['filepath']; ?>" target="_blank">
-							<span class="glyphicon glyphicon-edit"></span>
+							<span class="glyphicon glyphicon-eye-open"></span>
 							View
 						</a>
 					</button>
