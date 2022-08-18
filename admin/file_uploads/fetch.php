@@ -7,7 +7,7 @@
 	session_start();
 
 	try{	
-	    $sql = "SELECT fileuploads.id, d.name dname, filepath, from_date, to_date, year, types.name AS tname 
+	    $sql = "SELECT fileuploads.id, d.name dname, filepath, from_date, to_date, year, types.name tname 
 		FROM fileuploads LEFT JOIN office d ON fileuploads.office_id = d.id 
 		LEFT JOIN types ON fileuploads.type_id = types.id 
 		WHERE role_id = 'opcr'";

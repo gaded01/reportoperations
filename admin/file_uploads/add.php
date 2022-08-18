@@ -21,8 +21,6 @@
 
 		$allowed = array('pdf','docx','xlsx');
 
-
-
 		if(in_array($fileActualExt, $allowed))
 		{
 			if( $fileError === 0) 
