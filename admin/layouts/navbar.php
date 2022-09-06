@@ -5,16 +5,15 @@
     </li>
     <li class="event"><a data-toggle="tab" href="#event"><i class="fa fa-calendar"></i> Event</a>
     </li>
-    <li class="campus"><a data-toggle="tab" href="#campus"><i class="fa fa-users"></i> Campus</a>
+    <li class="campus"><a data-toggle="tab" href="#campus"><i class="fa fa-building"></i>Campus</a>
     </li>
-
     <?php
-    if ($_SESSION["role"] == "SUPER Admin") {
-        echo '<li class="user"><a data-toggle="tab" href="#user"><i class="fa fa-graduation-cap"></i> Users</a></li>';
+    if ($_SESSION["role"] == "SUPER Admin" || $_SESSION["role"] == "BAR1-OPCR Admin" ) {
+        echo '<li class="user"><a data-toggle="tab" href="#user"><i class="fa fa-user"></i> Users</a></li>';
     }
     if ($_SESSION["role"] == "BAR1-OPCR Admin" || $_SESSION["role"] == "DPCR Admin" || $_SESSION["role"] == "Department Admin" ||  $_SESSION["role"] == "SUPER Admin") {
-        echo '<li class="opcr"><a data-toggle="tab" href="#opcr"><i class="fa fa-user-plus"></i> OPCR </a></li>';
-        echo '<li class="bar1"><a data-toggle="tab" href="#bar1"><i class="fa fa-user-plus"></i> BAR1 </a></li>';
+        echo '<li class="opcr"><a data-toggle="tab" href="#opcr"><i class="fa fa-file"></i> OPCR </a></li>';
+        echo '<li class="bar1"><a data-toggle="tab" href="#bar1"><i class="fa fa-file"></i> BAR1 </a></li>';
     }
     // if ($_SESSION["role"] == "DPCR Admin" || $_SESSION["role"] == "SUPER Admin") {
     //     echo '<li class="dpcr"><a data-toggle="tab" href="#dpcr"><i class="fa fa-user-plus"></i> DPCR </a></li>';
@@ -26,8 +25,8 @@
     //     echo '<li><a data-toggle="tab" href="#department"><i class="fa fa-bar-chart"></i> Department</a>';
     // }
     ?>
-    <li class="accomplishment"><a data-toggle="tab" href="#accomplishment"><i class="fa fa-user-plus"></i> Accomplishment </a></li>
-    <li class="report"><a data-toggle="tab" href="#report"><i class="fa fa-bar-chart"></i> Settings</a>
+    <li class="accomplishment"><a data-toggle="tab" href="#accomplishment"><i class="fa fa-folder"></i> Accomplishment </a></li>
+    <li class="report"><a data-toggle="tab" href="#report"><i class="fa fa-cog"></i> Settings</a>
     </li>
     <li class="account"><a data-toggle="tab" href="#account"><i class="fa fa-user-secret"></i> Account</a>
     </li>
@@ -104,7 +103,10 @@
     </div>
     <div id="accomplishment" class="tab-pane notika-tab-menu-bg animated flipInX">
         <ul class="notika-main-menu-dropdown">
-            <li><a href="add-accomplishment.php">Add Accomplishment</a>
+            <?php
+            if ($_SESSION["role"] == "Department Admin" || $_SESSION["role"] == "DPCR Admin")
+                echo  '<li><a href="add-accomplishment.php">Add Accomplishment</a>'
+            ?>
             </li>
             <?php
             if ($_SESSION["role"] == "BAR1-OPCR Admin" || $_SESSION["role"] == "SUPER Admin")

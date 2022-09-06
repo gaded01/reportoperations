@@ -1,7 +1,10 @@
 <!doctype html>
 <html class="no-js" lang="en">
 
-<?php include 'includes/header.php'?>
+<?php include 'includes/header.php'
+
+
+?>
     <!-- datapicker CSS
 		============================================ -->
     <link rel="stylesheet" href="../css/datapicker/datepicker3.css">

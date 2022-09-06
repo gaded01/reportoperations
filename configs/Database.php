@@ -23,5 +23,4 @@ Class Connection{
    		$this->conn = null;
  	}
 }
- 
 ?>

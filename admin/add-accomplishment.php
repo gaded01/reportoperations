@@ -15,6 +15,15 @@
 	$db = $database->open();
     session_start();
 
+    if(!$_SESSION["loggedin"])
+    {
+        header("Location: ../index.php");
+           
+    }
+    elseif ($_SESSION["role"] !== "DPCR Admin" && $_SESSION["role"] !== "Department Admin" &&  $_SESSION["role"] !== "SUPER Admin") {
+        header("Location: ../admin/index.php");
+    }
+
     ?>
     <!-- Start Header Top Area -->
     <div class="header-top-area">

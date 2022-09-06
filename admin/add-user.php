@@ -6,14 +6,23 @@
 		============================================ -->
     <link rel="stylesheet" href="../css/datapicker/datepicker3.css">
 <body>
-<?php
-    include_once('../configs/Database.php');
+    <?php
+        include_once('../configs/Database.php');
 
-	$output = array('error' => false);
+        $output = array('error' => false);
 
-	$database = new Connection();
-	$db = $database->open();
-    session_start();
+        $database = new Connection();
+        $db = $database->open();
+        session_start();
+
+        if(!$_SESSION["loggedin"])
+        {
+            header("Location: ../index.php");
+        }
+        elseif ($_SESSION["role"] !== "BAR1-OPCR Admin" && $_SESSION["role"] !== "SUPER Admin") {
+
+            header("Location: ../admin/index.php");
+        }
 
     ?>
     <!-- Start Header Top Area -->
@@ -51,20 +60,6 @@
                         <form id="addform">
                         <div class="cmp-tb-hd cmp-int-hd">
                             <h2>User Information</h2>
-                        </div>
-                        <div class="form-example-int form-horizental mg-t-15">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
-                                        <label class="hrzn-fm">User ID No.</label>
-                                    </div>
-                                    <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
-                                        <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm id_no" placeholder="ex. user-234-21" name="id_no">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="form-example-int form-horizental mg-t-15">
                             <div class="form-group">
@@ -116,7 +111,8 @@
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="nk-int-st">
-                                            <select class="form-control input-sm gender" data-live-search="true" name="gender">
+                                            <select class="form-control gender" data-live-search="true" name="gender">
+                                                <option hidden>Select Gender</option>
                                                 <option value="Male">Male</option>
                                                 <option value="Female">Female</option>
                                             </select>
@@ -129,6 +125,7 @@
                                         <div class="col-lg-3">
                                             <div class="nk-int-st">
                                                 <select name="department" id="from_select" class="form-control">
+                                                    <option hidden>Select Department</option>
                                                     <?php
                                                     $sql = 'SELECT * FROM office';
                                                     foreach ($db->query($sql) as $row) {
@@ -151,7 +148,8 @@
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="nk-int-st">
-                                            <select class="form-control input-sm" data-live-search="true" name="role">
+                                            <select class="form-control" data-live-search="true" name="role">
+                                                <option hidden>Select Role</option>
                                                 <option value="BAR1-OPCR Admin">BAR1/OPCR Admin</option>
                                                 <option value="DPCR Admin">DPCR Admin</option>
                                                 <option value="Department Admin">Department Admin</option>
@@ -165,6 +163,7 @@
                                         <div class="col-lg-3">
                                             <div class="nk-int-st">
                                                 <select name="campus" id="campus" class="form-control">
+                                                    <option hidden>Select Campus</option>
                                                     <?php
                                                     $sql = 'SELECT * FROM campus';
                                                     foreach ($db->query($sql) as $row) {

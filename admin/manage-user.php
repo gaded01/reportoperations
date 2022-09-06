@@ -10,7 +10,16 @@
 	$db = $database->open();
     session_start();
 
-    ?>
+    if(!$_SESSION["loggedin"])
+    {
+        header("Location: ../index.php");
+           
+    }
+    elseif ($_SESSION["role"] !== "BAR1-OPCR Admin" &&  $_SESSION["role"] !== "SUPER Admin") {
+        header("Location: ../admin/index.php");
+    }
+
+?>
 <style>
     .bg-success{
         background-color:rgb(120,187,123);
@@ -62,10 +71,10 @@
                                 <thead>
                                     <tr>
                                         <th>ID #</th>
-                                        <th>firstname</th>
-                                        <th>lastname</th>
-                                        <th>middlename</th>
-                                        <th>email</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Middle Name</th>
+                                        <th>Email</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>

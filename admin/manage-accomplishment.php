@@ -3,6 +3,15 @@
 
 <?php include 'includes/header.php';
 session_start();
+
+if(!$_SESSION["loggedin"])
+{
+    header("Location: ../index.php");
+       
+}
+elseif ($_SESSION["role"] !== "BAR1-OPCR Admin" &&  $_SESSION["role"] !== "SUPER Admin") {
+    header("Location: ../admin/index.php");
+}
 ?>
     <!-- datapicker CSS
 		============================================ -->
