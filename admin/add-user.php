@@ -19,7 +19,7 @@
         {
             header("Location: ../index.php");
         }
-        elseif ($_SESSION["role"] !== "BAR1-OPCR Admin" && $_SESSION["role"] !== "SUPER Admin") {
+        if ($_SESSION["role"] === "DPCR Admin" || $_SESSION["role"] === "Department Admin") {
 
             header("Location: ../admin/index.php");
         }
@@ -118,7 +118,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-lg-2">
                                             <label class="hrzn-fm">Department</label>
                                         </div>
@@ -135,7 +135,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>

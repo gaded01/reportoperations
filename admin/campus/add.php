@@ -6,8 +6,8 @@
 	$database = new Connection();
 	$db = $database->open();
 	// $id = $db->query('SELECT  id  FROM campus WHERE id = (SELECT MAX(id) FROM campus)')->fetch();
-	$id = $db->query('SELECT count(*) FROM campus')->fetch();
-	$campus_id = 'CMPS' ." ". str_pad($id['count(*)'] + 1, 3, 0, STR_PAD_LEFT);
+	$id = $db->query('SELECT max(id) FROM campus')->fetch();
+	$campus_id = 'CMPS' ." ". str_pad($id['max(id)'] + 1, 3, 0, STR_PAD_LEFT);
 	try{
 		//make use of prepared statement to prevent sql injection
 		$stmt = $db->prepare("INSERT INTO campus (name, code) VALUES (:name, :code)");

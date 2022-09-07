@@ -17,7 +17,6 @@
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 		$campus_id = $_POST['campus_id'];
-		$department_id = $_POST['department'];
 		$role_id = $_POST['role_id'];
 
 		$sql = "UPDATE users SET id_no = '$id_no', 
@@ -29,8 +28,7 @@
 		contact = '$contact', 
 		username = '$username', 
 		password = '$password', 
-		campus_id = '$campus_id', 
-		department_id = '$department_id', 
+		campus_id = '$campus_id',
 		role_id = '$role_id' 
 		WHERE id = '$id'";
 		//if-else statement in executing our query

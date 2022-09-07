@@ -7,7 +7,7 @@
 	session_start();
 
 	try{	
-	    $sql = "SELECT fileuploads.id, d.name dname, filepath, from_date, to_date, year, types.name tname 
+	    $sql = "SELECT fileuploads.id, d.name dname, id_no, filepath, from_date ,semester,  year, types.name tname 
 		FROM fileuploads LEFT JOIN office d ON fileuploads.office_id = d.id 
 		LEFT JOIN types ON fileuploads.type_id = types.id 
 		WHERE role_id = 'opcr'";
@@ -16,10 +16,10 @@
 			$filename = $row['filepath'];
 	    	?>
 	    	<tr>
-				<td><?php echo $num; ?></td>
+				<td><?php echo $row['id_no']; ?></td>
 	    		<td><?php echo $row['dname']; ?></td>
-	    		<td><?php echo $row['from_date'] . " - " . $row['to_date']; ?></td>
-	    		<td><?php echo $row['year']; ?></td>
+	    		<td><?php echo $row['from_date']?></td>
+	    		<td><?php echo $row['semester']?></td>
 				<td><?php echo $row['tname']; ?></td>
 	    		<td>
 					<style>

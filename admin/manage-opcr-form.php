@@ -10,9 +10,9 @@ session_start();
             header("Location: ../index.php");
             
         }
-        elseif ($_SESSION["role"] !== "BAR1-OPCR Admin" &&  $_SESSION["role"] !== "SUPER Admin") {
-            header("Location: ../admin/index.php");
-        }
+    if ($_SESSION["role"] === "DPCR Admin" || $_SESSION["role"] === "Department Admin") {
+        header("Location: ../admin/index.php");
+    }
     ?>
     <!-- datapicker CSS
 		============================================ -->
@@ -57,7 +57,7 @@ session_start();
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th>ID#</th>
                                         <th>Department</th>
                                         <th>Rating</th>
                                         <th>Year</th>

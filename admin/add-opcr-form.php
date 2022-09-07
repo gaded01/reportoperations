@@ -1,22 +1,28 @@
 <!doctype html>
 <html class="no-js" lang="en">
 
-<?php include 'includes/header.php'
-
-
-?>
+<?php include 'includes/header.php'?>
     <!-- datapicker CSS
 		============================================ -->
     <link rel="stylesheet" href="../css/datapicker/datepicker3.css">
 <body>
     <?php
-    include_once('../configs/Database.php');
+        include_once('../configs/Database.php');
 
-	$output = array('error' => false);
+        $output = array('error' => false);
 
-	$database = new Connection();
-	$db = $database->open();
-    session_start();
+        $database = new Connection();
+        $db = $database->open();
+        session_start();
+
+        if(!$_SESSION["loggedin"])
+        {
+            header("Location: ../index.php");
+        }
+        if ($_SESSION["role"] === "DPCR Admin" || $_SESSION["role"] === "Department Admin") {
+
+            header("Location: ../admin/index.php");
+        }
 
     ?>
     <!-- Start Header Top Area -->
@@ -81,7 +87,6 @@
                                             <select name="from_date" id="from_select" class="form-control">
                                                 <option value="July-December">July - December</option>
                                                 <option value="January-June">January - June</option>
-                                               
                                             </select>
                                         </div>
                                     </div>
@@ -90,7 +95,7 @@
                                     </div>
                                     <div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <select name="to_date" id="to_select" class="form-control">
+                                            <select name="semester" id="semester" class="form-control">
                                                 <option value="1st Semester">1st Semester</option>
                                                 <option value="2nd Semester">2nd  Semester</option>
                                                

@@ -57,7 +57,7 @@ session_start();
                                     </div>
                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm code" placeholder="ex. CMPS 001" id="campus_id" name="code">
+                                            <input type="text" class="form-control input-sm code" disabled placeholder="Auto Generated" id="campus_id" name="code">
                                         </div>
                                     </div>
                                 </div>

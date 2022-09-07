@@ -15,7 +15,7 @@
         header("Location: ../index.php");
            
     }
-    elseif ($_SESSION["role"] !== "BAR1-OPCR Admin" &&  $_SESSION["role"] !== "SUPER Admin") {
+    if ($_SESSION["role"] === "DPCR Admin" || $_SESSION["role"] === "Department Admin") {
         header("Location: ../admin/index.php");
     }
 
@@ -195,16 +195,16 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-2">
-                                            <label class="hrzn-fm">Office</label>
+                                            <label class="hrzn-fm">Campus</label>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="nk-int-st">
-                                                <select name="office" id="from_select" class="form-control office">
+                                                <select class="form-control campus" name="campus_id" id="campus_id">
                                                     <?php
-                                                    $sql = 'SELECT * FROM office';
+                                                    $sql = 'SELECT * FROM campus';
                                                     foreach ($db->query($sql) as $row) {
-                                                    ?>
-                                                    <option value=" <?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
+                                                    ?>  
+                                                        <option value="<?php echo $row['id'] ?>"><?php echo $row['name']?></option>
                                                     <?php } ?>
                                                 </select>
                                             </div>
@@ -222,10 +222,9 @@
                                     <div class="col-lg-3">
                                         <div class="nk-int-st">
                                             <select class="form-control input-sm role" data-live-search="true" name="role_id">
-                                                <option value="OPCR Admin">OPCR Admin</option>
+                                                <option value="BAR1-OPCR Admin">BAR1/OPCR Admin</option>
                                                 <option value="DPCR Admin">DPCR Admin</option>
-                                                <option value="BAR1 Admin">BAR1 Admin</option>
-                                                <option value="BAR1 Admin">Department Admin</option>
+                                                <option value="Department Admin">Department Admin</option>
                                             </select>
                                         </div>
                                     </div>

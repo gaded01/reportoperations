@@ -137,16 +137,19 @@ function getDetails(id){
 				// $('#alert_message').html(response.message);
 			}
 			else{
+				console.log('response', response)
 				$('.id').val(response.data.id);
 				$('.id_no').val(response.data.id_no);
 				$('.firstname').val(response.data.firstname);
 				$('.lastname').val(response.data.lastname);
+				$('.middlename').val(response.data.middlename);
 				$('.gender').val(response.data.gender);
 				$('.email').val(response.data.email);
 				$('.contact').val(response.data.contact);
 				$('.username').val(response.data.username);
 				$('.password').val(response.data.password);
-				$('.campus_id').val(response.data.campus_id);
+				$('.campus').val(response.data.campus_id);
+				console.log($('.campus').val());
 				$('.office').val(response.data.office_id);
 				$('.role').val(response.data.role_id);
 				// $('.department_id').val(response.data.department_id);

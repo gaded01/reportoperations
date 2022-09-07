@@ -20,7 +20,8 @@
         header("Location: ../index.php");
            
     }
-    elseif ($_SESSION["role"] !== "DPCR Admin" && $_SESSION["role"] !== "Department Admin" &&  $_SESSION["role"] !== "SUPER Admin") {
+    elseif ($_SESSION["role"] === "BAR1-OPCR Admin") {
+
         header("Location: ../admin/index.php");
     }
 

@@ -3,8 +3,8 @@ include_once('../../configs/Database.php');
 
 $database = new Connection();
 	$db = $database->open();
-	$id = $db->query('SELECT count(*) FROM accomplishment')->fetch();
-	$id_no = 'ACMT' ."-". str_pad($id['count(*)'] + 1, 3, 0, STR_PAD_LEFT) ."-". date("y");
+	$id = $db->query('SELECT max(id) FROM accomplishment;')->fetch();
+	$id_no = 'ACMT' ."-". str_pad($id['max(id)'] + 1, 3, 0, STR_PAD_LEFT) ."-". date("y");
 	try{
 		$file = $_FILES['file'];
 

@@ -5,13 +5,13 @@
 
 	$database = new Connection();
 	$db = $database->open();
-	$id = $db->query('SELECT count(*) FROM users')->fetch();
-	$user_id = 'USER' ."-". str_pad($id['count(*)'] + 1, 3, 0, STR_PAD_LEFT) ."-". date("y");
+	$id = $db->query('SELECT max(id) FROM users')->fetch();
+	$user_id = 'USER' ."-". str_pad($id['max(id)'] + 1, 3, 0, STR_PAD_LEFT) ."-". date("y");
 	try{
 		//make use of prepared statement to prevent sql injection
-		$stmt = $db->prepare("INSERT INTO users (id_no, firstname, lastname, middlename, gender, office_id, campus_id, role_id, contact, email, username, password) VALUES (:id_no, :firstname, :lastname, :middlename, :gender, :office_id, :campus_id, :role_id, :contact, :email, :username, :password)");
+		$stmt = $db->prepare("INSERT INTO users (id_no, firstname, lastname, middlename, gender, campus_id, role_id, contact, email, username, password) VALUES (:id_no, :firstname, :lastname, :middlename, :gender, :campus_id, :role_id, :contact, :email, :username, :password)");
 		//if-else statement in executing our prepared statement
-		if ($stmt->execute(array(':id_no' => $user_id , ':firstname' => $_POST['firstname'] , ':lastname' => $_POST['lastname'] , ':middlename' => $_POST['middlename'] , ':gender' => $_POST['gender'] , ':office_id' => $_POST['department'] , ':campus_id' => $_POST['campus'] , ':role_id' => $_POST['role'] , ':contact' => $_POST['contact'] , ':email' => $_POST['email'] , ':username' => $_POST['username'] , ':password' => $_POST['password'])) ){
+		if ($stmt->execute(array(':id_no' => $user_id , ':firstname' => $_POST['firstname'] , ':lastname' => $_POST['lastname'] , ':middlename' => $_POST['middlename'] , ':gender' => $_POST['gender'] , ':campus_id' => $_POST['campus'] , ':role_id' => $_POST['role'] , ':contact' => $_POST['contact'] , ':email' => $_POST['email'] , ':username' => $_POST['username'] , ':password' => $_POST['password'])) ){
 			$output['message'] = 'User added successfully';
 		}
 		else{
