@@ -4,12 +4,10 @@
 <?php include 'includes/header.php';
 session_start();
 
-   
-    if(!$_SESSION["loggedin"])
-        {
-            header("Location: ../index.php");
-            
-        }
+    if(!$_SESSION["loggedin"]){
+        header("Location: ../index.php");
+        
+    }
     if ($_SESSION["role"] === "DPCR Admin" || $_SESSION["role"] === "Department Admin") {
         header("Location: ../admin/index.php");
     }
@@ -80,27 +78,27 @@ session_start();
     <!-- Delete -->
     <!-- Delete -->
 <div class="modal fade" id="deletemodal" role="dialog">
-                                    <div class="modal-dialog modal-sm">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <h5>Are you sure you want to delete this data?</h5>
-                                                <div class="form-example-wrap mg-t-50">
-                                                    <form id="deleteform">
-                                                    <input type="hidden" class="id" name="id">
-                                                    <input type="hidden" class="filename" name="filename">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="submit" class="btn btn-danger">Save changes</button>
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h5>Are you sure you want to delete this data?</h5>
+                <div class="form-example-wrap mg-t-50">
+                    <form id="deleteform">
+                    <input type="hidden" class="id" name="id">
+                    <input type="hidden" class="filename" name="filename">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger">Save changes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
                                 
 
     <?php include 'includes/footer.php'?>

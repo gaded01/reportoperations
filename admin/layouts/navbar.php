@@ -42,15 +42,22 @@
         <ul class="notika-main-menu-dropdown">
             <li><a href="add-office.php">Add Office</a>
             </li>
-            <li><a href="manage-office.php">Manage Offices</a>
+            <?php
+            if ($_SESSION["role"] == "BAR1-OPCR Admin" || $_SESSION["role"] == "SUPER Admin")
+                echo '<li><a href="manage-office.php">Manage Offices</a>'
+            ?>
             </li>
+
         </ul>
     </div>
     <div id="event" class="tab-pane notika-tab-menu-bg animated flipInX">
         <ul class="notika-main-menu-dropdown">
             <li><a href="add-event.php">Add Event</a>
             </li>
-            <li><a href="manage-event.php">Manage Events</a>
+            <?php
+            if ($_SESSION["role"] == "BAR1-OPCR Admin" || $_SESSION["role"] == "SUPER Admin")
+                echo '<li><a href="manage-event.php">Manage Events</a>'
+            ?>
             </li>
         </ul>
     </div>
@@ -58,8 +65,10 @@
         <ul class="notika-main-menu-dropdown">
             <li><a href="add-campus.php">Add Campus</a>
             </li>
-            <li><a href="manage-campus.php">Manage Campus</a>
-            </li>
+            <?php
+            if ($_SESSION["role"] == "BAR1-OPCR Admin" || $_SESSION["role"] == "SUPER Admin")
+                echo '<li><a href="manage-campus.php">Manage Campus</a>'
+            ?>
             </li>
         </ul>
     </div>
@@ -67,7 +76,10 @@
         <ul class="notika-main-menu-dropdown">
             <li><a href="add-user.php">Add User</a>
             </li>
-            <li><a href="manage-user.php">Manage User</a>
+            <?php
+            if ($_SESSION["role"] == "BAR1-OPCR Admin" || $_SESSION["role"] == "SUPER Admin")
+                echo '<li><a href="manage-user.php">Manage User</a>'
+            ?>
             </li>
         </ul>
     </div>
@@ -86,7 +98,10 @@
         <ul class="notika-main-menu-dropdown">
             <li><a href="add-dpcr-form.php">Add Form</a>
             </li>
-            <li><a href="manage-dpcr-form.php">Manage Forms</a>
+            <?php
+            if ($_SESSION["role"] == "BAR1-OPCR Admin" || $_SESSION["role"] == "SUPER Admin")
+                echo '<li><a href="manage-dpcr-form.php">Manage Forms</a>'
+            ?>
             </li>
         </ul>
     </div>
@@ -127,7 +142,10 @@
         <ul class="notika-main-menu-dropdown">
             <li><a href="add-types.php">Add Types</a>
             </li>
-            <li><a href="manage-types.php">Manage Types</a>
+            <?php
+            if ($_SESSION["role"] == "BAR1-OPCR Admin" || $_SESSION["role"] == "SUPER Admin")
+                echo '<li><a href="manage-types.php">Manage Types</a>'
+            ?>
             </li>
         </ul>
     </div>

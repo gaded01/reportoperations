@@ -5,6 +5,9 @@ if(!$_SESSION["loggedin"]){
     header("location: ../index.php");
     exit;
 }
+if ($_SESSION["role"] === "DPCR Admin" || $_SESSION["role"] === "Department Admin") {
+    header("Location: ../admin/index.php");
+}
 ?>
 
 <!doctype html>

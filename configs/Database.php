@@ -6,6 +6,14 @@ Class Connection{
 	private $username = "root";
 	private $password = "";
 	private $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
+
+	// private $server = "mysql:host=sql213.epizy.com;dbname=epiz_32543294_reportoperation_db";
+	// private $username = "epiz_32543294";
+	// private $password = "wQwNKOy05pTVVHd";
+	// private $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
+
+
+	
 	protected $conn;
  	
 	public function open(){
